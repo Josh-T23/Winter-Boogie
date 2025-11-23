@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwili1jprg1nc"]
+[gd_scene load_steps=3 format=3 uid="uid://bwili1jprg1nc"]
 
 [ext_resource type="Script" uid="uid://8m7ppoo12x2a" path="res://Scripts/combat.gd" id="1_raif2"]
+
+[sub_resource type="Environment" id="Environment_raif2"]
+fog_enabled = true
+fog_light_color = Color(0.182241, 0.590447, 0.801286, 1)
 
 [node name="Combat" type="Node3D"]
 script = ExtResource("1_raif2")
@@ -14,3 +18,6 @@ tracker = &"left_hand"
 
 [node name="Right" type="XRController3D" parent="XROrigin3D"]
 tracker = &"right_hand"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_raif2")
