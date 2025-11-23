@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://bwili1jprg1nc"]
+[gd_scene load_steps=2 format=3 uid="uid://bwili1jprg1nc"]
+
+[ext_resource type="Script" uid="uid://8m7ppoo12x2a" path="res://Scripts/combat.gd" id="1_raif2"]
 
 [node name="Combat" type="Node3D"]
+script = ExtResource("1_raif2")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+
+[node name="Left" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+
+[node name="Right" type="XRController3D" parent="XROrigin3D"]
+tracker = &"right_hand"
