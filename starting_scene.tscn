@@ -1,0 +1,104 @@
+[gd_scene load_steps=11 format=3 uid="uid://clkdw8jw8bk21"]
+
+[ext_resource type="PackedScene" uid="uid://ckl0pp1q5arin" path="res://Owen/Materials/OculusQuest2TouchController_Left.gltf" id="1_jxn5t"]
+[ext_resource type="Script" uid="uid://bag8c7f237ybo" path="res://Owen/Scripts/starting_scene.gd" id="1_wylmf"]
+[ext_resource type="PackedScene" uid="uid://ccpn6d0kebnia" path="res://Owen/Materials/OculusQuest2TouchController_Right.gltf" id="2_wylmf"]
+[ext_resource type="Script" uid="uid://dj22xiyxjb7c6" path="res://Owen/Scripts/right_hand_start.gd" id="3_oy8b4"]
+
+[sub_resource type="Environment" id="Environment_oy8b4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w3ubm"]
+size = Vector3(100, 0.1, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wylmf"]
+size = Vector3(0.1, 5, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oy8b4"]
+size = Vector3(0.1, 5, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e7s6c"]
+size = Vector3(4, 5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1dwcx"]
+size = Vector3(4, 5, 1)
+
+[node name="Starting Scene" type="Node3D"]
+script = ExtResource("1_wylmf")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 1, 0)
+tracker = &"left_hand"
+
+[node name="OculusQuest2TouchController_Left" parent="XROrigin3D/LeftHand" instance=ExtResource("1_jxn5t")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="RightHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 1, 0)
+tracker = &"right_hand"
+script = ExtResource("3_oy8b4")
+
+[node name="OculusQuest2TouchController_Right" parent="XROrigin3D/RightHand" instance=ExtResource("2_wylmf")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_oy8b4")
+
+[node name="Floor" type="StaticBody3D" parent="WorldEnvironment"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="WorldEnvironment/Floor"]
+size = Vector3(100, 0.1, 100)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/Floor"]
+shape = SubResource("BoxShape3D_w3ubm")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+
+[node name="LeftBoundry" type="StaticBody3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="WorldEnvironment/LeftBoundry"]
+size = Vector3(0.1, 5, 5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/LeftBoundry"]
+shape = SubResource("BoxShape3D_wylmf")
+
+[node name="RightBoundry" type="StaticBody3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/RightBoundry"]
+shape = SubResource("BoxShape3D_oy8b4")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="WorldEnvironment/RightBoundry"]
+size = Vector3(0.1, 5, 5)
+
+[node name="FrontBoundry" type="StaticBody3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="WorldEnvironment/FrontBoundry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.1375)
+size = Vector3(4, 5, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/FrontBoundry"]
+shape = SubResource("BoxShape3D_e7s6c")
+
+[node name="Label3D" type="Label3D" parent="WorldEnvironment/FrontBoundry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25139, 17.9481)
+text = "Press A to start"
+
+[node name="BackBoundry" type="StaticBody3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="WorldEnvironment/BackBoundry"]
+size = Vector3(4, 5, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/BackBoundry"]
+shape = SubResource("BoxShape3D_1dwcx")
+
+[connection signal="button_pressed" from="XROrigin3D/RightHand" to="XROrigin3D/RightHand" method="_on_button_pressed"]

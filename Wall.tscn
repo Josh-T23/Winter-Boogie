@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjltne46dkp0y"]
+
+[ext_resource type="Script" uid="uid://b2dfo46axwb52" path="res://Owen/Scripts/wall.gd" id="1_l6igm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ba4mr"]
+size = Vector3(1.5, 5, 1)
+
+[node name="Wall" type="RigidBody3D"]
+script = ExtResource("1_l6igm")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(1.5, 5, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ba4mr")
