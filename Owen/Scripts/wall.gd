@@ -1,0 +1,14 @@
+extends RigidBody3D
+
+@export var SPEED = 6
+@export var BEHIND = 1
+
+func _ready():
+	freeze = true
+
+func _physics_process(delta):
+	if global_position.z > BEHIND:
+		var score = get_parent().get_node("Score")
+		score.score += 1
+		queue_free()
+	global_position.z += SPEED * delta

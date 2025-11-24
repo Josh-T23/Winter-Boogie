@@ -1,0 +1,94 @@
+[gd_scene load_steps=11 format=3 uid="uid://be5xdr8lt5rd6"]
+
+[ext_resource type="Script" uid="uid://ckqq5noag8peq" path="res://weaponSwitch/weapon_switch.gd" id="1_3av2h"]
+[ext_resource type="Script" uid="uid://b10s8ujxf6mw4" path="res://weaponSwitch/weapon_switch_controller.gd" id="2_ha0fl"]
+[ext_resource type="Script" uid="uid://h16ohhox2f88" path="res://weaponSwitch/weapon_switch_area_3d.gd" id="3_x50hc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mgfgp"]
+albedo_color = Color(0.160784, 1, 1, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_oe83h"]
+material = SubResource("StandardMaterial3D_mgfgp")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3av2h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ha0fl"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_x50hc"]
+material = SubResource("StandardMaterial3D_ha0fl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_emdri"]
+albedo_color = Color(1, 1, 0.262745, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ef1g6"]
+material = SubResource("StandardMaterial3D_emdri")
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_3av2h")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+
+[node name="XRController3DRight" type="XRController3D" parent="XROrigin3D"]
+tracker = &"right_hand"
+script = ExtResource("2_ha0fl")
+
+[node name="WeaponMount" type="Node3D" parent="XROrigin3D/XRController3DRight"]
+
+[node name="RayCast3D" type="RayCast3D" parent="XROrigin3D/XRController3DRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00237274, 0)
+target_position = Vector3(0, 0, -10)
+collide_with_areas = true
+
+[node name="WeaponMenu3D" type="Node3D" parent="."]
+transform = Transform3D(-0.999641, 0, -0.026805, 0, 1, 0, 0.026805, 0, -0.999641, 0, 1.5, 0.657167)
+
+[node name="Button0" type="Area3D" parent="WeaponMenu3D"]
+transform = Transform3D(0.389606, 0, -0.920982, 0, 1, 0, 0.920982, 0, 0.389606, 2.99315, -0.0816308, 0.329897)
+script = ExtResource("3_x50hc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WeaponMenu3D/Button0"]
+mesh = SubResource("QuadMesh_oe83h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WeaponMenu3D/Button0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0496958, 0, -0.54596)
+shape = SubResource("BoxShape3D_3av2h")
+
+[node name="Label3D" type="Label3D" parent="WeaponMenu3D/Button0"]
+text = "Baseball bat"
+
+[node name="Button1" type="Area3D" parent="WeaponMenu3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0473094, 0, -2.4681)
+script = ExtResource("3_x50hc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WeaponMenu3D/Button1"]
+mesh = SubResource("QuadMesh_x50hc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WeaponMenu3D/Button1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0133953, 0, -0.499551)
+shape = SubResource("BoxShape3D_3av2h")
+
+[node name="Label3D" type="Label3D" parent="WeaponMenu3D/Button1"]
+text = "Ice cream"
+
+[node name="Button2" type="Area3D" parent="WeaponMenu3D"]
+transform = Transform3D(0.276023, 0, 0.961151, 0, 1, 0, -0.961151, 0, 0.276023, -2.60038, -0.271289, -0.0429133)
+script = ExtResource("3_x50hc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WeaponMenu3D/Button2"]
+mesh = SubResource("QuadMesh_ef1g6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WeaponMenu3D/Button2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0516075, 0, -0.625308)
+shape = SubResource("BoxShape3D_3av2h")
+
+[node name="Label3D" type="Label3D" parent="WeaponMenu3D/Button2"]
+text = "Pillow"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.985609, 0.16904, 0, -0.16904, -0.985609, 0, 2.00321, -0.115811)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.78417, 0, -0.620546, 0, 1, 0, 0.620546, 0, -0.78417, 1.36822, -0.118237, 0)
