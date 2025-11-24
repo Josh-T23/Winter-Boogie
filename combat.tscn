@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwili1jprg1nc"]
+[gd_scene load_steps=6 format=3 uid="uid://bwili1jprg1nc"]
 
 [ext_resource type="Script" uid="uid://8m7ppoo12x2a" path="res://Scripts/combat.gd" id="1_raif2"]
 [ext_resource type="Script" uid="uid://dotyx8b2ekrqd" path="res://SnowmanSpawner.gd" id="2_s0t75"]
@@ -6,6 +6,13 @@
 [sub_resource type="Environment" id="Environment_raif2"]
 fog_enabled = true
 fog_light_color = Color(0.182241, 0.590447, 0.801286, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0t75"]
+albedo_color = Color(0.960784, 0.980392, 1, 1)
+metallic_specular = 0.3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kx3u1"]
+size = Vector3(100, 0.1, 100)
 
 [node name="Combat" type="Node3D"]
 script = ExtResource("1_raif2")
@@ -22,6 +29,18 @@ tracker = &"right_hand"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_raif2")
+
+[node name="Ground" type="StaticBody3D" parent="WorldEnvironment"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="WorldEnvironment/Ground"]
+size = Vector3(100, 0.1, 100)
+material = SubResource("StandardMaterial3D_s0t75")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/Ground"]
+shape = SubResource("BoxShape3D_kx3u1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
 
 [node name="SnowmanSpawner" type="Node3D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("2_s0t75")

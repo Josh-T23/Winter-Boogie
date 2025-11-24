@@ -5,8 +5,7 @@ extends Node3D
 @onready var timer = $"Timer"
 
 @export var player: Node3D
-@export var dist = 12
-@export var low_time = 0.5
+@export var low_time = 0.25
 @export var high_time = 3.0
 
 func _ready():
@@ -20,23 +19,17 @@ func _on_timer_timeout():
 func spawn():
 	var instance = snowman_scene.instantiate()
 
-	# pick a random angle on the circle
 	var angle = randf() * TAU
-	var r = 20.0  # fixed radius
+	var r = 20.0  
 
 	var x = cos(angle) * r
 	var z = sin(angle) * r
 
-	# optional random height around player
-	#var y = player.global_position.y + randf_range(0.5, 2.0)
 
-	# place snowman at player position + offset
-	instance.global_position = player.global_position + Vector3(x, 0, z)
+	instance.global_position = player.global_position + Vector3(x, .875, z)
 
-	# random speed between 3–8
 	instance.speed = randf_range(1, 4)
 
-	# assign player for homing
 	instance.player = player
 
 	scene_root.add_child(instance)

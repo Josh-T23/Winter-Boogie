@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dgm5l4gby1xw2"]
 
-[ext_resource type="PackedScene" uid="uid://d087t3cln2tdp" path="res://ObjectsForUse/Baseball bat.glb" id="1_j60af"]
+[ext_resource type="PackedScene" uid="uid://d087t3cln2tdp" path="res://weaponSwitch/Baseball bat.glb" id="1_j60af"]
 
 [node name="Baseball bat" instance=ExtResource("1_j60af")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://clkdw8jw8bk21"]
+[gd_scene load_steps=11 format=3 uid="uid://beuntuy0d8jp4"]
 
 [ext_resource type="PackedScene" uid="uid://ckl0pp1q5arin" path="res://Owen/Materials/OculusQuest2TouchController_Left.gltf" id="1_jxn5t"]
 [ext_resource type="Script" uid="uid://bag8c7f237ybo" path="res://Owen/Scripts/starting_scene.gd" id="1_wylmf"]
