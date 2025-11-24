@@ -22,21 +22,16 @@ func spawn():
 
 	# pick a random angle on the circle
 	var angle = randf() * TAU
-	var r = 20.0  # fixed radius
+	var r = 20.0  
 
 	var x = cos(angle) * r
 	var z = sin(angle) * r
 
-	# optional random height around player
-	#var y = player.global_position.y + randf_range(0.5, 2.0)
 
-	# place snowman at player position + offset
 	instance.global_position = player.global_position + Vector3(x, 0, z)
 
-	# random speed between 3–8
 	instance.speed = randf_range(1, 4)
 
-	# assign player for homing
 	instance.player = player
 
 	scene_root.add_child(instance)
