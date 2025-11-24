@@ -1,13 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://dyej73lf7cdro"]
+[gd_scene load_steps=6 format=3 uid="uid://dyej73lf7cdro"]
 
 [ext_resource type="Script" uid="uid://cl2v8rlgxp78n" path="res://Snowman.gd" id="1_mklb1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mklb1"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mklb1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nxjs2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shg61"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_x4rgl"]
 size = Vector3(0.5, 1.55, 0.5)
 
-[node name="Snowman" type="RigidBody3D"]
+[node name="Snowman" type="CharacterBody3D"]
 collision_layer = 2
 collision_mask = 17
 axis_lock_angular_x = true
@@ -24,11 +31,13 @@ material = SubResource("StandardMaterial3D_mklb1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 size = Vector3(0.5, 0.5, 0.5)
 material = SubResource("StandardMaterial3D_mklb1")
+material = SubResource("StandardMaterial3D_nxjs2")
 
 [node name="Bottom" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
 size = Vector3(0.75, 0.75, 0.75)
 material = SubResource("StandardMaterial3D_mklb1")
+material = SubResource("StandardMaterial3D_shg61")
 
 [node name="SnowmanCollison" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775, 0)
