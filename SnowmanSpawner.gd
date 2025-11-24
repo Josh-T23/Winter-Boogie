@@ -18,6 +18,7 @@ func _on_timer_timeout():
 
 func spawn():
 	var instance = snowman_scene.instantiate()
+	scene_root.add_child(instance)
 
 	var angle = randf() * TAU
 	var r = 20.0  
@@ -25,6 +26,9 @@ func spawn():
 	var x = cos(angle) * r
 	var z = sin(angle) * r
 
+	instance.global_position = player.global_position + Vector3(randf_range(12, 4), 0, z)
+	
+	#print("Snowman position: ", instance.global_position)
 
 
 	instance.global_position = player.global_position + Vector3(x, .875, z)
@@ -34,4 +38,4 @@ func spawn():
 
 	instance.player = player
 
-	scene_root.add_child(instance)
+	
