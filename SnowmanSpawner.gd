@@ -26,7 +26,9 @@ func spawn():
 	var z = sin(angle) * r
 
 
+
 	instance.global_position = player.global_position + Vector3(x, .875, z)
+
 
 	instance.speed = randf_range(1, 4)
 
