@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="WinterBoogie1"
-run/main_scene="uid://be5xdr8lt5rd6"
+run/main_scene="uid://bwili1jprg1nc"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
