@@ -27,6 +27,12 @@ func spawn():
 	var x = cos(angle) * r
 	var z = sin(angle) * r
 
+<<<<<<< HEAD
+=======
+	instance.global_position = player.global_position + Vector3(randf_range(12, 4), 0, z)
+	
+	#print("Snowman position: ", instance.global_position)
+>>>>>>> parent of ff4789d (Merge branch 'main' into weapon-destruction)
 
 	instance.speed = randf_range(1, 4)
 

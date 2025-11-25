@@ -12,6 +12,9 @@ signal snowman_died
 
 func _ready():
 	snowman_died.connect(_died)
+<<<<<<< HEAD
+>>>>>>> parent of ff4789d (Merge branch 'main' into weapon-destruction)
+=======
 >>>>>>> parent of ff4789d (Merge branch 'main' into weapon-destruction)
 
 func _physics_process(delta):
