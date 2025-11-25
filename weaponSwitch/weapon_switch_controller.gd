@@ -37,3 +37,8 @@ func _process(_delta):
 	else:
 		pointed_button = null
 		last_pointed_button = null
+
+
+func _on_button_pressed(name: String) -> void:
+	if pointed_button != null and name == "trigger_click":
+		get_tree().change_scene_to_file("res://combat.tscn")

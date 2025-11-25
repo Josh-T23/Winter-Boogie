@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0u6ppx71ddii"]
+[gd_scene load_steps=7 format=3 uid="uid://bwili1jprg1nc"]
 
 [ext_resource type="Script" uid="uid://8m7ppoo12x2a" path="res://Scripts/combat.gd" id="1_raif2"]
-[ext_resource type="PackedScene" uid="uid://cqkm6y4b8jubl" path="res://weapons/pillow_new.tscn" id="2_kx3u1"]
-[ext_resource type="Script" uid="uid://bqgtk7k101u48" path="res://SnowmanSpawner.gd" id="2_s0t75"]
+[ext_resource type="PackedScene" path="res://weapons/pillow_new.tscn" id="2_kx3u1"]
+[ext_resource type="Script" path="res://SnowmanSpawner.gd" id="2_s0t75"]
 [ext_resource type="AudioStream" uid="uid://dm1t40p1epu8c" path="res://Sounds/simple-whoosh.mp3" id="4_ga4lu"]
 
 [sub_resource type="Environment" id="Environment_raif2"]
