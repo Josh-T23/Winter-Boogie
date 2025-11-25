@@ -30,6 +30,9 @@ tracker = &"right_hand"
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_raif2")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1, 0)
+
 [node name="SnowmanSpawner" type="Node3D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("2_s0t75")
 player = NodePath("../XROrigin3D")
