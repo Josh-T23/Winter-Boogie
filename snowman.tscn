@@ -1,6 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://e4r0e4pd57wp"]
+[gd_scene load_steps=6 format=3 uid="uid://e4r0e4pd57wp"]
 
 [ext_resource type="Script" uid="uid://cymwx5r21n5ap" path="res://Snowman.gd" id="1_mklb1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mklb1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nxjs2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shg61"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x4rgl"]
 size = Vector3(0.5, 1.55, 0.5)
@@ -15,14 +21,17 @@ script = ExtResource("1_mklb1")
 [node name="Top" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
 size = Vector3(0.3, 0.3, 0.3)
+material = SubResource("StandardMaterial3D_mklb1")
 
 [node name="Middle" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 size = Vector3(0.5, 0.5, 0.5)
+material = SubResource("StandardMaterial3D_nxjs2")
 
 [node name="Bottom" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
 size = Vector3(0.75, 0.75, 0.75)
+material = SubResource("StandardMaterial3D_shg61")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775, 0)
