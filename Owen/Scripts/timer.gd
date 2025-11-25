@@ -1,6 +1,6 @@
 extends Label3D
 
-var start_time = 10
+var start_time = 20
 
 func _process(delta: float) -> void:
 	start_time -= delta

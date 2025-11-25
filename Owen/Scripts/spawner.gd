@@ -13,7 +13,7 @@ func _ready():
 	_start_timer()
 
 func _start_timer():
-	var t = rng.randf_range(min_interval, max_interval)
+	var t = rng.randf_range(min_interval, max_interval / Global.round)
 	var timer = Timer.new()
 	timer.one_shot = true
 	timer.wait_time = t
