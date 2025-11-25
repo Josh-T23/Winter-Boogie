@@ -11,7 +11,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_x4rgl"]
 size = Vector3(0.5, 1.55, 0.5)
 
-[node name="Snowman" type="RigidBody3D"]
+[node name="Snowman" type="RigidBody3D" groups=["Weapon"]]
 collision_layer = 2
 axis_lock_angular_x = true
 axis_lock_angular_y = true
