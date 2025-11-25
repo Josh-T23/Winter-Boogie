@@ -19,6 +19,7 @@ func _on_timer_timeout():
 
 func spawn():
 	var instance = snowman_scene.instantiate()
+	scene_root.add_child(instance)
 
 	# pick a random angle on the circle
 	var angle = randf() * TAU
@@ -28,10 +29,11 @@ func spawn():
 	var z = sin(angle) * r
 
 
-	instance.global_position = player.global_position + Vector3(x, 0, z)
+	#instance.global_position = player.global_position + Vector3(x, 0, z)
+	instance.global_position = player.global_position + Vector3(randf_range(12, 4), 0, z)
 
 	instance.speed = randf_range(1, 4)
 
 	instance.player = player
 
-	scene_root.add_child(instance)
+	
