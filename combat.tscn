@@ -1,21 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwili1jprg1nc"]
+<<<<<<< HEAD
 [gd_scene load_steps=6 format=3 uid="uid://bwili1jprg1nc"]
+=======
+[gd_scene load_steps=7 format=3 uid="uid://bwili1jprg1nc"]
+>>>>>>> parent of ff4789d (Merge branch 'main' into weapon-destruction)
 
 [ext_resource type="Script" uid="uid://8m7ppoo12x2a" path="res://Scripts/combat.gd" id="1_raif2"]
-[ext_resource type="PackedScene" uid="uid://co326aox6cvsg" path="res://weapons/pillow_new.tscn" id="2_kx3u1"]
-[ext_resource type="Script" uid="uid://bsishrq2d25vw" path="res://SnowmanSpawner.gd" id="2_s0t75"]
-[ext_resource type="AudioStream" uid="uid://ba0m1p4sh3b03" path="res://Sounds/simple-whoosh.mp3" id="4_ga4lu"]
+[ext_resource type="Script" uid="uid://dotyx8b2ekrqd" path="res://SnowmanSpawner.gd" id="2_s0t75"]
 
 [sub_resource type="Environment" id="Environment_raif2"]
 fog_enabled = true
 fog_light_color = Color(0.182241, 0.590447, 0.801286, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_s0t75"]
+<<<<<<< HEAD
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0t75"]
 albedo_color = Color(0.960784, 0.980392, 1, 1)
 metallic_specular = 0.3
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kx3u1"]
+=======
+[sub_resource type="BoxShape3D" id="BoxShape3D_s0t75"]
+>>>>>>> parent of ff4789d (Merge branch 'main' into weapon-destruction)
 size = Vector3(100, 0.1, 100)
 
 [node name="Combat" type="Node3D"]
@@ -31,42 +35,15 @@ tracker = &"left_hand"
 [node name="Right" type="XRController3D" parent="XROrigin3D"]
 tracker = &"right_hand"
 
-[node name="Pillow" parent="XROrigin3D/Right" instance=ExtResource("2_kx3u1")]
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_raif2")
 
 [node name="Ground" type="StaticBody3D" parent="WorldEnvironment"]
-collision_layer = 16
-
-[node name="CSGBox3D" type="CSGBox3D" parent="WorldEnvironment/Ground"]
-size = Vector3(100, 0.1, 100)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/Ground"]
-shape = SubResource("BoxShape3D_s0t75")
-
-[node name="OmniLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 2, 0)
-light_energy = 4.0
-
-[node name="CSGBox3D" type="CSGBox3D" parent="WorldEnvironment/Ground"]
-size = Vector3(100, 0.1, 100)
-material = SubResource("StandardMaterial3D_s0t75")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/Ground"]
-shape = SubResource("BoxShape3D_kx3u1")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
 
 [node name="SnowmanSpawner" type="Node3D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("2_s0t75")
 player = NodePath("../XROrigin3D")
 
 [node name="Timer" type="Timer" parent="SnowmanSpawner"]
-
-[node name="PillowAudio" type="AudioStreamPlayer3D" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("4_ga4lu")
 
 [connection signal="timeout" from="SnowmanSpawner/Timer" to="SnowmanSpawner" method="_on_timer_timeout"]
