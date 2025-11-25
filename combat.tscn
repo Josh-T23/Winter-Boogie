@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0u6ppx71ddii"]
+[gd_scene load_steps=7 format=3 uid="uid://c0u6ppx71ddii"]
 
 [ext_resource type="Script" uid="uid://8m7ppoo12x2a" path="res://Scripts/combat.gd" id="1_raif2"]
+[ext_resource type="PackedScene" uid="uid://cqkm6y4b8jubl" path="res://weapons/pillow_new.tscn" id="2_kx3u1"]
 [ext_resource type="Script" uid="uid://bqgtk7k101u48" path="res://SnowmanSpawner.gd" id="2_s0t75"]
+[ext_resource type="AudioStream" uid="uid://dm1t40p1epu8c" path="res://Sounds/simple-whoosh.mp3" id="4_ga4lu"]
 
 [sub_resource type="Environment" id="Environment_raif2"]
 fog_enabled = true
@@ -23,6 +25,8 @@ tracker = &"left_hand"
 [node name="Right" type="XRController3D" parent="XROrigin3D"]
 tracker = &"right_hand"
 
+[node name="Pillow" parent="XROrigin3D/Right" instance=ExtResource("2_kx3u1")]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_raif2")
 
@@ -39,5 +43,9 @@ size = Vector3(100, 0.1, 100)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_s0t75")
+
+[node name="PillowAudio" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_ga4lu")
 
 [connection signal="timeout" from="SnowmanSpawner/Timer" to="SnowmanSpawner" method="_on_timer_timeout"]

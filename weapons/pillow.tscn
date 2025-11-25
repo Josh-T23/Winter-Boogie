@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dytcguhxoqwcb"]
 
-[ext_resource type="PackedScene" uid="uid://bo20s6r0box8d" path="res://ObjectsForUse/Pillow.glb" id="1_v3asd"]
+[ext_resource type="PackedScene" uid="uid://bo20s6r0box8d" path="res://weaponSwitch/Pillow.glb" id="1_v3asd"]
 
 [node name="Pillow" instance=ExtResource("1_v3asd")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
