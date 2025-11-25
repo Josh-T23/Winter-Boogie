@@ -1,12 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://e4r0e4pd57wp"]
 
-[ext_resource type="Script" path="res://Snowman.gd" id="1_mklb1"]
+[ext_resource type="Script" uid="uid://cymwx5r21n5ap" path="res://Snowman.gd" id="1_mklb1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x4rgl"]
 size = Vector3(0.5, 1.55, 0.5)
 
 [node name="Snowman" type="RigidBody3D"]
 collision_layer = 2
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 script = ExtResource("1_mklb1")
 
 [node name="Top" type="CSGBox3D" parent="."]
