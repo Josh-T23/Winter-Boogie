@@ -1,5 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8orx3lp4xhdy"]
+[gd_scene load_steps=3 format=3 uid="uid://c8orx3lp4xhdy"]
 
-[ext_resource type="PackedScene" uid="uid://cnp2a1cv4kqjp" path="res://ObjectsForUse/Ice Cream.glb" id="1_6vhj7"]
+[ext_resource type="PackedScene" uid="uid://cnp2a1cv4kqjp" path="res://weaponSwitch/Ice Cream.glb" id="1_6vhj7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6vhj7"]
+radius = 0.15
+height = 0.5
 
 [node name="Ice Cream" instance=ExtResource("1_6vhj7")]
+
+[node name="iceCream" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0351356, 0.0351356)
+
+[node name="Area3D" type="Area3D" parent="." index="1"]
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.250887, 0)
+shape = SubResource("CapsuleShape3D_6vhj7")

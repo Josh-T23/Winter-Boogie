@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-@export var SPEED = 6
+@export var SPEED = 3
 @export var BEHIND = 1
 
 func _ready():
@@ -11,4 +11,4 @@ func _physics_process(delta):
 		var score = get_parent().get_node("Score")
 		score.score += 1
 		queue_free()
-	global_position.z += SPEED * delta
+	global_position.z += SPEED * delta * Global.round

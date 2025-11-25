@@ -27,8 +27,10 @@ func _process(_delta):
 		
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
+		print(collider)
 		if collider and collider.has_signal("pressed"):
 			pointed_button = collider
+			print(pointed_button)
 			if pointed_button != last_pointed_button:
 				pointed_button.pressed.emit()
 				last_pointed_button = pointed_button
@@ -41,4 +43,5 @@ func _process(_delta):
 
 func _on_button_pressed(name: String) -> void:
 	if pointed_button != null and name == "trigger_click":
+		Global.weapon = pointed_button.get_node("Label3D").text
 		get_tree().change_scene_to_file("res://combat.tscn")

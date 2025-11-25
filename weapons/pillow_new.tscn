@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cqkm6y4b8jubl"]
 
 [ext_resource type="PackedScene" uid="uid://bo20s6r0box8d" path="res://weaponSwitch/Pillow.glb" id="1_3bum3"]
-[ext_resource type="Script" uid="uid://ci6hixya3l2ot" path="res://Scripts/pillow.gd" id="2_c8552"]
+[ext_resource type="Script" path="res://Scripts/pillow.gd" id="2_c8552"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3bum3"]
 size = Vector3(4.75, 1.5, 4)

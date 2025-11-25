@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwili1jprg1nc"]
+[gd_scene load_steps=8 format=3 uid="uid://bwili1jprg1nc"]
 
 [ext_resource type="Script" uid="uid://8m7ppoo12x2a" path="res://Scripts/combat.gd" id="1_raif2"]
-[ext_resource type="PackedScene" path="res://weapons/pillow_new.tscn" id="2_kx3u1"]
-[ext_resource type="Script" path="res://SnowmanSpawner.gd" id="2_s0t75"]
+[ext_resource type="Script" uid="uid://bokja7bllhlrf" path="res://Owen/Scripts/right_combat.gd" id="2_fvoc2"]
+[ext_resource type="Script" uid="uid://bqgtk7k101u48" path="res://SnowmanSpawner.gd" id="2_s0t75"]
+[ext_resource type="Script" uid="uid://nhh4sdlydd3w" path="res://Owen/Scripts/combat_timer.gd" id="3_u30h6"]
 [ext_resource type="AudioStream" uid="uid://dm1t40p1epu8c" path="res://Sounds/simple-whoosh.mp3" id="4_ga4lu"]
 
 [sub_resource type="Environment" id="Environment_raif2"]
@@ -24,8 +25,7 @@ tracker = &"left_hand"
 
 [node name="Right" type="XRController3D" parent="XROrigin3D"]
 tracker = &"right_hand"
-
-[node name="Pillow" parent="XROrigin3D/Right" instance=ExtResource("2_kx3u1")]
+script = ExtResource("2_fvoc2")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_raif2")
@@ -33,11 +33,18 @@ environment = SubResource("Environment_raif2")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1, 0)
 
+[node name="CombatTimer" type="Timer" parent="WorldEnvironment"]
+wait_time = 20.0
+autostart = true
+script = ExtResource("3_u30h6")
+
 [node name="SnowmanSpawner" type="Node3D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("2_s0t75")
 player = NodePath("../XROrigin3D")
 
 [node name="Timer" type="Timer" parent="SnowmanSpawner"]
+wait_time = 2.0
+script = ExtResource("3_u30h6")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -51,4 +58,5 @@ shape = SubResource("BoxShape3D_s0t75")
 unique_name_in_owner = true
 stream = ExtResource("4_ga4lu")
 
+[connection signal="timeout" from="WorldEnvironment/CombatTimer" to="WorldEnvironment/CombatTimer" method="_on_timeout"]
 [connection signal="timeout" from="SnowmanSpawner/Timer" to="SnowmanSpawner" method="_on_timer_timeout"]

@@ -25,3 +25,9 @@ func _died():
 	var parent = get_parent()
 	# Play Sound Effect when killing snowman.
 	parent.emit_signal("playSound", "Pillow")
+
+
+func _on_body_entered(body):
+	print(body)
+	if "weapon" in body.name:
+		_died()

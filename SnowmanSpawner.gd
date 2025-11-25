@@ -11,7 +11,7 @@ extends Node3D
 
 func _ready():
 	timer.one_shot = false
-	timer.wait_time = randf_range(low_time, high_time)
+	timer.wait_time = randf_range(low_time, high_time / Global.round)
 	timer.start()
 
 func _on_timer_timeout():
