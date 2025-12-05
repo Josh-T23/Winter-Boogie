@@ -9,7 +9,7 @@ size = Vector3(1.5, 5, 1)
 script = ExtResource("1_l6igm")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-size = Vector3(1.5, 5, 1)
+size = Vector3(1.2, 5, 0.8)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_ba4mr")

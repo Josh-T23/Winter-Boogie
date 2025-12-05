@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://be5xdr8lt5rd6"]
+[gd_scene load_steps=12 format=3 uid="uid://be5xdr8lt5rd6"]
 
 [ext_resource type="Script" uid="uid://ckqq5noag8peq" path="res://weaponSwitch/weapon_switch.gd" id="1_3av2h"]
 [ext_resource type="Script" uid="uid://b10s8ujxf6mw4" path="res://weaponSwitch/weapon_switch_controller.gd" id="2_ha0fl"]
 [ext_resource type="Script" uid="uid://h16ohhox2f88" path="res://weaponSwitch/weapon_switch_area_3d.gd" id="3_x50hc"]
+[ext_resource type="Script" uid="uid://q7v76fwjm1cc" path="res://weaponSwitch/score_shower.gd" id="4_eim28"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mgfgp"]
 albedo_color = Color(0.160784, 1, 1, 1)
@@ -46,7 +47,7 @@ collide_with_areas = true
 transform = Transform3D(-0.999641, 0, -0.026805, 0, 1, 0, 0.026805, 0, -0.999641, 0, 1.5, 0.657167)
 
 [node name="Button0" type="Area3D" parent="WeaponMenu3D"]
-transform = Transform3D(0.389606, 0, -0.920982, 0, 1, 0, 0.920982, 0, 0.389606, 2.99315, -0.0816308, 0.329897)
+transform = Transform3D(0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866026, 1.7, -0.1, -2)
 script = ExtResource("3_x50hc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WeaponMenu3D/Button0"]
@@ -60,7 +61,7 @@ shape = SubResource("BoxShape3D_3av2h")
 text = "Baseball bat"
 
 [node name="Button1" type="Area3D" parent="WeaponMenu3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0473094, 0, -2.4681)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047, -0.1, -2.468)
 script = ExtResource("3_x50hc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WeaponMenu3D/Button1"]
@@ -74,7 +75,7 @@ shape = SubResource("BoxShape3D_3av2h")
 text = "Ice cream"
 
 [node name="Button2" type="Area3D" parent="WeaponMenu3D"]
-transform = Transform3D(0.276023, 0, 0.961151, 0, 1, 0, -0.961151, 0, 0.276023, -2.60038, -0.271289, -0.0429133)
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -1.7, -0.1, -2)
 script = ExtResource("3_x50hc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WeaponMenu3D/Button2"]
@@ -86,6 +87,11 @@ shape = SubResource("BoxShape3D_3av2h")
 
 [node name="Label3D" type="Label3D" parent="WeaponMenu3D/Button2"]
 text = "Pillow"
+
+[node name="Score Shower" type="Label3D" parent="WeaponMenu3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76715, 0)
+text = "Your Score: "
+script = ExtResource("4_eim28")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.985609, 0.16904, 0, -0.16904, -0.985609, 0, 2.00321, -0.115811)
