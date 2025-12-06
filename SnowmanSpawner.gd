@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var snowman_scene = load("res://snowman.tscn")
+@onready var snowman_scene = load("res://Monsters/snowman_real.tscn")
 @onready var scene_root = get_tree().current_scene
 @onready var timer = $"Timer"
 

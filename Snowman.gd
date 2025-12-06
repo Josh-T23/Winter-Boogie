@@ -4,10 +4,10 @@ extends RigidBody3D
 @export var dir = Vector3(0, 0, 1)
 @export var player: Node3D
 
-signal snowman_died
-
-func _ready():
-	snowman_died.connect(_died)
+#signal snowman_died
+#
+#func _ready():
+	#snowman_died.connect(_died)
 
 func _physics_process(delta):
 	if not player:
@@ -20,15 +20,19 @@ func _physics_process(delta):
 	if global_position.distance_to(player.global_position) < .1:
 		queue_free()
 		
-func _died():
-	#print("Snowman Parent: ", get_parent().name)
+#func _died():
+	##print("Snowman Parent: ", get_parent().name)
+	#var parent = get_parent()
+	## Play Sound Effect when killing snowman.
+	#parent.emit_signal("playSound", "Pillow")
+
+
+# Method is not connecting.
+func _on_body_entered(body):
+	print("body: ", body)
 	var parent = get_parent()
 	# Play Sound Effect when killing snowman.
 	parent.emit_signal("playSound", "Pillow")
-
-
-func _on_body_entered(body):
-	print(body)
-	if "weapon" in body.name:
-		_died()
+	#if "weapon" in body.name:
+		#_died()
 	
