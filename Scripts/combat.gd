@@ -2,6 +2,8 @@ extends Node3D
 
 var xr_interface: XRInterface
 @onready var pillowAudio = $%PillowAudio
+@onready var creamAudio = $%CreamAudio
+@onready var batAudio = $%BatAudio
 
 signal playSound
 
@@ -23,3 +25,7 @@ func _play_sound(soundName):
 	print("Sound should be playing.")
 	if soundName == "Pillow":
 		pillowAudio.play()
+	if soundName == "Ice Cream":
+		creamAudio.play()
+	if soundName == "Bat":
+		batAudio.play()
