@@ -6,6 +6,7 @@ func _on_body_entered(body):
 	if body.name.contains("SnowmanReal"):
 		#print("Detecting a snowman!")
 		var rootScene = get_tree().root.get_child(1)
+		print(rootScene.name)
 		body.queue_free()
 		# Play Sound Effect when killing snowman.
-		rootScene.emit_signal("playSound", "Bat")
+		rootScene.emit_signal("playSound", "Ice Cream")

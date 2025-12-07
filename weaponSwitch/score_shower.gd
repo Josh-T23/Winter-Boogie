@@ -1,4 +1,4 @@
 extends Label3D
 
 func _ready() -> void:
-	text = "Your Score: " + Global.score
+	text = "Your Score: " + str(Global.score)
