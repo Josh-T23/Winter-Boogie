@@ -20,5 +20,6 @@ func _ready():
 		print("OpenXR not initialized, please check if your headset is connected")
 
 func _play_sound(soundName):
+	print("Sound should be playing.")
 	if soundName == "Pillow":
 		pillowAudio.play()

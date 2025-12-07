@@ -9,6 +9,8 @@ extends Node3D
 @export var low_time = 0.5
 @export var high_time = 3.0
 
+var num = 0
+
 func _ready():
 	timer.one_shot = false
 	timer.wait_time = randf_range(low_time, high_time / Global.round)
@@ -19,6 +21,8 @@ func _on_timer_timeout():
 
 func spawn():
 	var instance = snowman_scene.instantiate()
+	instance.name = instance.name + str(num)
+	num += 1
 	scene_root.add_child(instance)
 
 	# pick a random angle on the circle

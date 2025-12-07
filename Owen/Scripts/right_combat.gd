@@ -3,6 +3,7 @@ extends XRController3D
 var weapon = null
 var weapon_name = null
 
+# This is used for weapon switching.
 func _ready() -> void:
 	weapon_name = str(Global.weapon)
 	weapon_name = normalize_name(weapon_name)

@@ -28,11 +28,17 @@ func _physics_process(delta):
 
 
 # Method is not connecting.
-func _on_body_entered(body):
-	print("body: ", body)
-	var parent = get_parent()
-	# Play Sound Effect when killing snowman.
-	parent.emit_signal("playSound", "Pillow")
+#func _on_body_entered(body):
+	##print("body: ", body.Name)
+	#print("Something collided")
+	#var parent = get_parent()
+	## Play Sound Effect when killing snowman.
+	#parent.emit_signal("playSound", "Pillow")
 	#if "weapon" in body.name:
 		#_died()
 	
+
+
+#func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	#print("body: ", body.Name)
+	#pass # Replace with function body.
