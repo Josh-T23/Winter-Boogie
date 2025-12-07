@@ -1,6 +1,13 @@
 # Winter-Boogie
 ## Ongoing Issues:
-<li>Orientation Issues</li>
-<li>Get destroying snowman working</li>
-<li>Incorporate new Snowman Model</li>
-<li>Fix crashing after Round Three</li>
+<li>Add currency</li>
+<li>Snowman have randomize health</li>
+<li>Weapons deal different damage</li>
+<li>User can be killed by snowman</li>
+<li>Death screen with score</li>
+
+## Lower priority issues:
+<li>Add a billboard UI that show weapons stat like damage amount and weapon cost</li>
+<li>Add effects to snowman killing like two white cubes appearing</li>
+<li>Add controller vibration for stimulating experience</li>
+<li>Add additional weapons (ranged weapon possibily and a melee)</li>
