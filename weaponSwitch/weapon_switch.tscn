@@ -29,6 +29,7 @@ material = SubResource("StandardMaterial3D_emdri")
 script = ExtResource("1_3av2h")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 
@@ -46,50 +47,52 @@ collide_with_areas = true
 [node name="WeaponMenu3D" type="Node3D" parent="."]
 transform = Transform3D(-0.999641, 0, -0.026805, 0, 1, 0, 0.026805, 0, -0.999641, 0, 1.5, 0.657167)
 
-[node name="Button0" type="Area3D" parent="WeaponMenu3D"]
+[node name="Baseball Bat" type="Area3D" parent="WeaponMenu3D"]
 transform = Transform3D(0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866026, 1.7, -0.1, -2)
 script = ExtResource("3_x50hc")
+cost = 20
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WeaponMenu3D/Button0"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WeaponMenu3D/Baseball Bat"]
 mesh = SubResource("QuadMesh_oe83h")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WeaponMenu3D/Button0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WeaponMenu3D/Baseball Bat"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0496958, 0, -0.54596)
 shape = SubResource("BoxShape3D_3av2h")
 
-[node name="Label3D" type="Label3D" parent="WeaponMenu3D/Button0"]
+[node name="Label3D" type="Label3D" parent="WeaponMenu3D/Baseball Bat"]
 text = "Baseball bat"
 
-[node name="Button1" type="Area3D" parent="WeaponMenu3D"]
+[node name="Ice Cream" type="Area3D" parent="WeaponMenu3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047, -0.1, -2.468)
 script = ExtResource("3_x50hc")
+cost = 10
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WeaponMenu3D/Button1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WeaponMenu3D/Ice Cream"]
 mesh = SubResource("QuadMesh_x50hc")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WeaponMenu3D/Button1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WeaponMenu3D/Ice Cream"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0133953, 0, -0.499551)
 shape = SubResource("BoxShape3D_3av2h")
 
-[node name="Label3D" type="Label3D" parent="WeaponMenu3D/Button1"]
+[node name="Label3D" type="Label3D" parent="WeaponMenu3D/Ice Cream"]
 text = "Ice cream"
 
-[node name="Button2" type="Area3D" parent="WeaponMenu3D"]
+[node name="Pillow" type="Area3D" parent="WeaponMenu3D"]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -1.7, -0.1, -2)
 script = ExtResource("3_x50hc")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WeaponMenu3D/Button2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WeaponMenu3D/Pillow"]
 mesh = SubResource("QuadMesh_ef1g6")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WeaponMenu3D/Button2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WeaponMenu3D/Pillow"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0516075, 0, -0.625308)
 shape = SubResource("BoxShape3D_3av2h")
 
-[node name="Label3D" type="Label3D" parent="WeaponMenu3D/Button2"]
+[node name="Label3D" type="Label3D" parent="WeaponMenu3D/Pillow"]
 text = "Pillow"
 
 [node name="Score Shower" type="Label3D" parent="WeaponMenu3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76715, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0675548, 0.76715, -2.51933)
 text = "Your Score: "
 script = ExtResource("4_eim28")
 

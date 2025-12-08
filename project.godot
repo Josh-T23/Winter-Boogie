@@ -33,4 +33,5 @@ textures/vram_compression/import_etc2_astc=true
 
 openxr/enabled=true
 openxr/default_action_map="uid://cf1aiql0y4sv5"
+openxr/reference_space=2
 shaders/enabled=true

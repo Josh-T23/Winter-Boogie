@@ -43,5 +43,6 @@ func _process(_delta):
 
 func _on_button_pressed(name: String) -> void:
 	if pointed_button != null and name == "trigger_click":
+		Global.score -= pointed_button.cost
 		Global.weapon = pointed_button.get_node("Label3D").text
 		get_tree().change_scene_to_file("res://combat.tscn")

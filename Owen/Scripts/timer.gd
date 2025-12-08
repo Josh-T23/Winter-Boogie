@@ -7,4 +7,6 @@ func _process(delta: float) -> void:
 	text = "Time: %.1f" % start_time
 	
 	if start_time <= 0:
+		var score = $"../Score".score
+		Global.score += score
 		get_tree().change_scene_to_file("res://weaponSwitch/weapon_switch.tscn")

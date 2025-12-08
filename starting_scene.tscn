@@ -26,7 +26,6 @@ size = Vector3(4, 5, 1)
 script = ExtResource("1_wylmf")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 1, 0)

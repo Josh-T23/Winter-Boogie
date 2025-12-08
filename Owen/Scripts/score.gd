@@ -6,4 +6,3 @@ func _process(delta: float) -> void:
 	if score < 0:
 		score = 0
 	text = "Score: " + str(score)
-	Global.score = score
