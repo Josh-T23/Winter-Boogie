@@ -6,7 +6,7 @@ extends Node3D
 
 @export var player: Node3D
 @export var dist = 12
-@export var low_time = 0.5
+@export var low_time = 1.5
 @export var high_time = 3.0
 
 var num = 0
@@ -36,7 +36,7 @@ func spawn():
 	#instance.global_position = player.global_position + Vector3(x, 0, z)
 	instance.global_position = player.global_position + Vector3(randf_range(12, 4), 0, z)
 
-	instance.speed = randf_range(1, 4)
+	instance.speed = randf_range(1, 5)
 
 	instance.player = player
 

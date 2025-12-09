@@ -7,6 +7,10 @@ var xr_interface: XRInterface
 
 signal playSound
 
+var hits = 0
+const MAX_HITS = 3
+const MAX_ROUNDS = 3
+
 func _ready():
 	playSound.connect(_play_sound)
 	xr_interface = XRServer.find_interface("OpenXR")
@@ -20,7 +24,7 @@ func _ready():
 		get_viewport().use_xr = true
 	else:
 		print("OpenXR not initialized, please check if your headset is connected")
-
+		
 func _play_sound(soundName):
 	print("Sound should be playing.")
 	if soundName == "Pillow":
@@ -29,3 +33,16 @@ func _play_sound(soundName):
 		creamAudio.play()
 	if soundName == "Bat":
 		batAudio.play()
+
+func snowman_hit():
+	hits += 1
+	if hits >= MAX_HITS:
+		round_over()
+		
+func round_over():
+	if Global.round < MAX_ROUNDS:
+		Global.round += 1
+		hits = 0
+		get_tree().change_scene_to_file("res://owen_human_joystick.tscn")
+	else:
+		get_tree().change_scene_to_file("res://GameOver.tscn")

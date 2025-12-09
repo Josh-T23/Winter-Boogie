@@ -5,7 +5,7 @@ extends Timer
 func _on_timeout() -> void:
 	if Global.round == 3:
 		Global.reset()
-		get_tree().change_scene_to_file("res://starting_scene.tscn")
+		get_tree().change_scene_to_file("res://GameOver.tscn")
 		return
 	Global.round += 1
 	Global.weapon = null

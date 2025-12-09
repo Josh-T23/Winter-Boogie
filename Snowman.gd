@@ -18,6 +18,8 @@ func _physics_process(delta):
 	linear_velocity = dir * speed
 	
 	if global_position.distance_to(player.global_position) < .1:
+		var combat_node = get_tree().current_scene
+		combat_node.snowman_hit()
 		queue_free()
 		
 #func _died():
