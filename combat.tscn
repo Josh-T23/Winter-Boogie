@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwili1jprg1nc"]
+[gd_scene load_steps=11 format=3 uid="uid://bwili1jprg1nc"]
 
 [ext_resource type="Script" uid="uid://8m7ppoo12x2a" path="res://Scripts/combat.gd" id="1_raif2"]
 [ext_resource type="Script" uid="uid://bokja7bllhlrf" path="res://Owen/Scripts/right_combat.gd" id="2_fvoc2"]
 [ext_resource type="Script" uid="uid://bqgtk7k101u48" path="res://SnowmanSpawner.gd" id="2_s0t75"]
+[ext_resource type="Script" uid="uid://d0aavo4hvrikt" path="res://Owen/Scripts/combat_movement.gd" id="2_syqip"]
 [ext_resource type="Script" uid="uid://nhh4sdlydd3w" path="res://Owen/Scripts/combat_timer.gd" id="3_u30h6"]
 [ext_resource type="AudioStream" uid="uid://dm1t40p1epu8c" path="res://Sounds/simple-whoosh.mp3" id="4_ga4lu"]
 [ext_resource type="AudioStream" uid="uid://bcol23w2k8b01" path="res://Sounds/cartoon-splat-310479.mp3" id="6_fvoc2"]
@@ -19,6 +20,7 @@ size = Vector3(100, 0.1, 100)
 script = ExtResource("1_raif2")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
+script = ExtResource("2_syqip")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 
