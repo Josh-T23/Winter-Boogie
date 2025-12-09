@@ -50,7 +50,7 @@ transform = Transform3D(-0.999641, 0, -0.026805, 0, 1, 0, 0.026805, 0, -0.999641
 [node name="Baseball Bat" type="Area3D" parent="WeaponMenu3D"]
 transform = Transform3D(0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866026, 1.7, -0.1, -2)
 script = ExtResource("3_x50hc")
-cost = 20
+cost = 30
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WeaponMenu3D/Baseball Bat"]
 mesh = SubResource("QuadMesh_oe83h")
@@ -62,10 +62,14 @@ shape = SubResource("BoxShape3D_3av2h")
 [node name="Label3D" type="Label3D" parent="WeaponMenu3D/Baseball Bat"]
 text = "Baseball bat"
 
+[node name="Label3D" type="Label3D" parent="WeaponMenu3D/Baseball Bat/Label3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+text = "-30 points"
+
 [node name="Ice Cream" type="Area3D" parent="WeaponMenu3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047, -0.1, -2.468)
 script = ExtResource("3_x50hc")
-cost = 10
+cost = 15
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WeaponMenu3D/Ice Cream"]
 mesh = SubResource("QuadMesh_x50hc")
@@ -76,6 +80,10 @@ shape = SubResource("BoxShape3D_3av2h")
 
 [node name="Label3D" type="Label3D" parent="WeaponMenu3D/Ice Cream"]
 text = "Ice cream"
+
+[node name="Label3D" type="Label3D" parent="WeaponMenu3D/Ice Cream/Label3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+text = "-15 points"
 
 [node name="Pillow" type="Area3D" parent="WeaponMenu3D"]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -1.7, -0.1, -2)
@@ -90,6 +98,11 @@ shape = SubResource("BoxShape3D_3av2h")
 
 [node name="Label3D" type="Label3D" parent="WeaponMenu3D/Pillow"]
 text = "Pillow"
+
+[node name="Label3D" type="Label3D" parent="WeaponMenu3D/Pillow/Label3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+text = "Free
+"
 
 [node name="Score Shower" type="Label3D" parent="WeaponMenu3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0675548, 0.76715, -2.51933)
