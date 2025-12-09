@@ -36,7 +36,7 @@ func spawn():
 	#instance.global_position = player.global_position + Vector3(x, 0, z)
 	instance.global_position = player.global_position + Vector3(randf_range(12, 4), 0, z)
 
-	instance.speed = randf_range(1, 5)
+	instance.speed = randf_range(1, 3.5)
 
 	instance.player = player
 
