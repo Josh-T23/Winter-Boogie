@@ -5,9 +5,9 @@
 [ext_resource type="Script" uid="uid://bqgtk7k101u48" path="res://Scripts/Mobs/SnowmanSpawner.gd" id="2_s0t75"]
 [ext_resource type="Script" uid="uid://d0aavo4hvrikt" path="res://Scripts/Gameplay/Wall_Dodge/combat_movement.gd" id="2_syqip"]
 [ext_resource type="Script" uid="uid://nhh4sdlydd3w" path="res://Scripts/Gameplay/Wall_Dodge/combat_timer.gd" id="3_u30h6"]
-[ext_resource type="AudioStream" uid="uid://dm1t40p1epu8c" path="res://Sounds/simple-whoosh.mp3" id="4_ga4lu"]
-[ext_resource type="AudioStream" uid="uid://bcol23w2k8b01" path="res://Sounds/cartoon-splat-310479.mp3" id="6_fvoc2"]
-[ext_resource type="AudioStream" uid="uid://hlqewfaw0er" path="res://Sounds/swing-whoosh-5-198498.mp3" id="7_v7dqf"]
+[ext_resource type="AudioStream" uid="uid://dm1t40p1epu8c" path="res://Assets/Audio/simple-whoosh.mp3" id="4_ga4lu"]
+[ext_resource type="AudioStream" uid="uid://bcol23w2k8b01" path="res://Assets/Audio/cartoon-splat-310479.mp3" id="6_fvoc2"]
+[ext_resource type="AudioStream" uid="uid://hlqewfaw0er" path="res://Assets/Audio/swing-whoosh-5-198498.mp3" id="7_v7dqf"]
 
 [sub_resource type="Environment" id="Environment_raif2"]
 fog_enabled = true
