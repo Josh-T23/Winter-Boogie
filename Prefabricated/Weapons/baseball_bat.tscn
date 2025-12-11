@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dgm5l4gby1xw2"]
 
 [ext_resource type="PackedScene" uid="uid://d087t3cln2tdp" path="res://Assets/Models/Baseball bat.glb" id="1_j60af"]
-[ext_resource type="Script" uid="uid://cjkrvjm8kx1os" path="res://Scripts/Gameplay/Wall_Dodge/snowman_killer.gd" id="2_66cic"]
+[ext_resource type="Script" uid="uid://cjkrvjm8kx1os" path="res://Scripts/Weapons/baseball.gd" id="2_66cic"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_j60af"]
 height = 14.149
