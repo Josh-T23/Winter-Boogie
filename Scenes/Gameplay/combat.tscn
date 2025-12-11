@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://bwili1jprg1nc"]
+
+[ext_resource type="Script" uid="uid://8m7ppoo12x2a" path="res://Scripts/Gameplay/combat.gd" id="1_raif2"]
+[ext_resource type="Script" uid="uid://bokja7bllhlrf" path="res://Scripts/Gameplay/Wall_Dodge/right_combat.gd" id="2_fvoc2"]
+[ext_resource type="Script" uid="uid://bqgtk7k101u48" path="res://Scripts/Mobs/SnowmanSpawner.gd" id="2_s0t75"]
+[ext_resource type="Script" uid="uid://d0aavo4hvrikt" path="res://Scripts/Gameplay/Wall_Dodge/combat_movement.gd" id="2_syqip"]
+[ext_resource type="Script" uid="uid://nhh4sdlydd3w" path="res://Scripts/Gameplay/Wall_Dodge/combat_timer.gd" id="3_u30h6"]
+[ext_resource type="AudioStream" uid="uid://dm1t40p1epu8c" path="res://Assets/Audio/simple-whoosh.mp3" id="4_ga4lu"]
+[ext_resource type="AudioStream" uid="uid://bcol23w2k8b01" path="res://Assets/Audio/cartoon-splat-310479.mp3" id="6_fvoc2"]
+[ext_resource type="AudioStream" uid="uid://hlqewfaw0er" path="res://Assets/Audio/swing-whoosh-5-198498.mp3" id="7_v7dqf"]
+
+[sub_resource type="Environment" id="Environment_raif2"]
+fog_enabled = true
+fog_light_color = Color(0.182241, 0.590447, 0.801286, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s0t75"]
+size = Vector3(100, 0.1, 100)
+
+[node name="Combat" type="Node3D"]
+script = ExtResource("1_raif2")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+script = ExtResource("2_syqip")
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+
+[node name="Left" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+
+[node name="Right" type="XRController3D" parent="XROrigin3D"]
+tracker = &"right_hand"
+script = ExtResource("2_fvoc2")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_raif2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1, 0)
+
+[node name="CombatTimer" type="Timer" parent="WorldEnvironment"]
+wait_time = 15.0
+autostart = true
+script = ExtResource("3_u30h6")
+
+[node name="SnowmanSpawner" type="Node3D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("2_s0t75")
+player = NodePath("../XROrigin3D")
+
+[node name="Timer" type="Timer" parent="SnowmanSpawner"]
+wait_time = 2.0
+script = ExtResource("3_u30h6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D"]
+size = Vector3(100, 0.1, 100)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_s0t75")
+
+[node name="PillowAudio" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_ga4lu")
+
+[node name="CreamAudio" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_fvoc2")
+
+[node name="BatAudio" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_v7dqf")
+
+[connection signal="timeout" from="WorldEnvironment/CombatTimer" to="WorldEnvironment/CombatTimer" method="_on_timeout"]
+[connection signal="timeout" from="SnowmanSpawner/Timer" to="SnowmanSpawner" method="_on_timer_timeout"]
