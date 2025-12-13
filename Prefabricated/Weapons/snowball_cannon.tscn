@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfl4bmhur6o0w"]
+
+[ext_resource type="PackedScene" uid="uid://bgl8xyf8mg16s" path="res://Assets/Models/SnowballCannon.glb" id="1_05ay4"]
+[ext_resource type="Script" uid="uid://32plx3h7b2b3" path="res://Scripts/Weapons/cannon.gd" id="2_n1fve"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_05ay4"]
+
+[node name="SnowballCannon" instance=ExtResource("1_05ay4")]
+transform = Transform3D(0.1216, 0, 0, 0, 0.14112, 0, 0, 0, 0.144, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="." index="1"]
+script = ExtResource("2_n1fve")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+shape = SubResource("BoxShape3D_05ay4")

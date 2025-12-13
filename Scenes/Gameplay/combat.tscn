@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwili1jprg1nc"]
+[gd_scene load_steps=12 format=3 uid="uid://bwili1jprg1nc"]
 
 [ext_resource type="Script" uid="uid://8m7ppoo12x2a" path="res://Scripts/Gameplay/combat.gd" id="1_raif2"]
 [ext_resource type="Script" uid="uid://bokja7bllhlrf" path="res://Scripts/Gameplay/Wall_Dodge/right_combat.gd" id="2_fvoc2"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://dm1t40p1epu8c" path="res://Assets/Audio/simple-whoosh.mp3" id="4_ga4lu"]
 [ext_resource type="AudioStream" uid="uid://bcol23w2k8b01" path="res://Assets/Audio/cartoon-splat-310479.mp3" id="6_fvoc2"]
 [ext_resource type="AudioStream" uid="uid://hlqewfaw0er" path="res://Assets/Audio/swing-whoosh-5-198498.mp3" id="7_v7dqf"]
+[ext_resource type="AudioStream" uid="uid://bdarjk767uie0" path="res://Assets/Audio/scifi-gun-shoot-1-266417.mp3" id="9_bu63p"]
 
 [sub_resource type="Environment" id="Environment_raif2"]
 fog_enabled = true
@@ -70,5 +71,10 @@ stream = ExtResource("6_fvoc2")
 unique_name_in_owner = true
 stream = ExtResource("7_v7dqf")
 
+[node name="CannonAudio" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("9_bu63p")
+
+[connection signal="button_pressed" from="XROrigin3D/Right" to="XROrigin3D/Right" method="_on_button_pressed"]
 [connection signal="timeout" from="WorldEnvironment/CombatTimer" to="WorldEnvironment/CombatTimer" method="_on_timeout"]
 [connection signal="timeout" from="SnowmanSpawner/Timer" to="SnowmanSpawner" method="_on_timer_timeout"]

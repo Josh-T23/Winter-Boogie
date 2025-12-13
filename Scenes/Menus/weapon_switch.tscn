@@ -3,13 +3,9 @@
 [ext_resource type="Script" uid="uid://ckqq5noag8peq" path="res://Scripts/UI/weapon_switch.gd" id="1_3av2h"]
 [ext_resource type="Script" uid="uid://b10s8ujxf6mw4" path="res://Scripts/UI/weapon_switch_controller.gd" id="2_ha0fl"]
 [ext_resource type="Script" uid="uid://h16ohhox2f88" path="res://Scripts/UI/weapon_switch_area_3d.gd" id="3_x50hc"]
+[ext_resource type="QuadMesh" uid="uid://c87rus6r12bhq" path="res://Materials/bat_mesh.tres" id="4_3c43u"]
 [ext_resource type="Script" uid="uid://q7v76fwjm1cc" path="res://Scripts/Gameplay/score_shower.gd" id="4_eim28"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mgfgp"]
-albedo_color = Color(0.160784, 1, 1, 1)
-
-[sub_resource type="QuadMesh" id="QuadMesh_oe83h"]
-material = SubResource("StandardMaterial3D_mgfgp")
+[ext_resource type="QuadMesh" uid="uid://df7j4qhp6867p" path="res://Materials/secret_mesh.tres" id="5_b4ff2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3av2h"]
 
@@ -51,12 +47,12 @@ tracker = &"left_hand"
 transform = Transform3D(-0.999641, 0, -0.026805, 0, 1, 0, 0.026805, 0, -0.999641, 0, 1.5, 0.657167)
 
 [node name="Baseball Bat" type="Area3D" parent="WeaponMenu3D"]
-transform = Transform3D(0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866026, 1.7, -0.1, -2)
+transform = Transform3D(0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866026, 0.929464, -0.1, -2.02066)
 script = ExtResource("3_x50hc")
 cost = 30
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WeaponMenu3D/Baseball Bat"]
-mesh = SubResource("QuadMesh_oe83h")
+mesh = ExtResource("4_3c43u")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WeaponMenu3D/Baseball Bat"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0496958, 0, -0.54596)
@@ -70,8 +66,33 @@ text = "Baseball bat"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 text = "-30 points"
 
+[node name="Snowball Cannon" type="Area3D" parent="WeaponMenu3D"]
+transform = Transform3D(0.500001, 0, -0.866026, 0, 1, 0, 0.866026, 0, 0.500001, 1.77129, -0.1, -0.992364)
+script = ExtResource("3_x50hc")
+cost = 10
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WeaponMenu3D/Snowball Cannon"]
+mesh = ExtResource("5_b4ff2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WeaponMenu3D/Snowball Cannon"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0496958, 0, -0.54596)
+shape = SubResource("BoxShape3D_3av2h")
+
+[node name="Label3D" type="Label3D" parent="WeaponMenu3D/Snowball Cannon"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0053345, 0, 0.00983953)
+visible = false
+text = "Snowball Cannon"
+
+[node name="Label3D3" type="Label3D" parent="WeaponMenu3D/Snowball Cannon"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0053345, 0, 0.00983953)
+text = "???"
+
+[node name="Label3D2" type="Label3D" parent="WeaponMenu3D/Snowball Cannon"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00533456, -0.25, 0.00983953)
+text = "-100 points"
+
 [node name="Ice Cream" type="Area3D" parent="WeaponMenu3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047, -0.1, -2.468)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.403624, -0.1, -2.48008)
 script = ExtResource("3_x50hc")
 cost = 15
 
