@@ -27,10 +27,10 @@ func _process(_delta):
 		
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
-		print(collider)
+		#print(collider)
 		if collider and collider.has_signal("pressed"):
 			pointed_button = collider
-			print(pointed_button)
+			#print(pointed_button)
 			if pointed_button != last_pointed_button:
 				pointed_button.pressed.emit()
 				last_pointed_button = pointed_button

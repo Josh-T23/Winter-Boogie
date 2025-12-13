@@ -3,7 +3,8 @@ extends Node3D
 var weapons = [
 {"name": "Bat", "scene": "res://Prefabricated/Weapons/baseball_bat.tscn"},
 {"name": "IceCream", "scene": "res://Prefabricated/Weapons/ice_cream.tscn"},
-{"name": "Pillow", "scene": "res://Prefabricated/Weapons/pillow.tscn"}
+{"name": "Pillow", "scene": "res://Prefabricated/Weapons/pillow.tscn"},
+{"name": "Cannon", "scene": "res://Prefabricated/Weapons/snowball_cannon.tscn"}
 ]
 
 var current_weapon_index = 0

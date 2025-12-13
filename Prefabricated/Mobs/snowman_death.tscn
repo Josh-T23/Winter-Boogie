@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://k140cd4ttbt1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tmy4y"]
+
+[node name="SnowmanDeath" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_tmy4y")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="RigidBody3D"]
+size = Vector3(0.1, 0.1, 0.1)
