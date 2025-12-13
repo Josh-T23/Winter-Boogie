@@ -3,16 +3,18 @@ extends RigidBody3D
 @export var speed = 5.0
 @export var dir = Vector3(0, 0, 1)
 @export var player: Node3D
+@onready var groanEffect = $%GroanEffect
 
 #signal snowman_died
 #
-#func _ready():
-	#snowman_died.connect(_died)
+func _ready():
+	if not groanEffect.playing and randi_range(0, 1) == 1:
+		groanEffect.play()
 
 func _physics_process(delta):
 	if not player:
 		return
-		
+
 	dir = (player.global_position - global_position).normalized()
 	
 	linear_velocity = dir * speed
