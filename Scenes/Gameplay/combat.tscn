@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bwili1jprg1nc"]
+[gd_scene load_steps=13 format=3 uid="uid://bwili1jprg1nc"]
 
 [ext_resource type="Script" uid="uid://8m7ppoo12x2a" path="res://Scripts/Gameplay/combat.gd" id="1_raif2"]
 [ext_resource type="Script" uid="uid://bokja7bllhlrf" path="res://Scripts/Gameplay/Wall_Dodge/right_combat.gd" id="2_fvoc2"]
@@ -13,6 +13,8 @@
 [sub_resource type="Environment" id="Environment_raif2"]
 fog_enabled = true
 fog_light_color = Color(0.182241, 0.590447, 0.801286, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bu63p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s0t75"]
 size = Vector3(100, 0.1, 100)
@@ -39,7 +41,7 @@ environment = SubResource("Environment_raif2")
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1, 0)
 
 [node name="CombatTimer" type="Timer" parent="WorldEnvironment"]
-wait_time = 15.0
+wait_time = 30.0
 autostart = true
 script = ExtResource("3_u30h6")
 
@@ -51,10 +53,15 @@ player = NodePath("../XROrigin3D")
 wait_time = 2.0
 script = ExtResource("3_u30h6")
 
+[node name="SnowmanSpawnTimer" type="Timer" parent="SnowmanSpawner"]
+unique_name_in_owner = true
+wait_time = 0.5
+
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D"]
 size = Vector3(100, 0.1, 100)
+material = SubResource("StandardMaterial3D_bu63p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_s0t75")
@@ -78,3 +85,4 @@ stream = ExtResource("9_bu63p")
 [connection signal="button_pressed" from="XROrigin3D/Right" to="XROrigin3D/Right" method="_on_button_pressed"]
 [connection signal="timeout" from="WorldEnvironment/CombatTimer" to="WorldEnvironment/CombatTimer" method="_on_timeout"]
 [connection signal="timeout" from="SnowmanSpawner/Timer" to="SnowmanSpawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="SnowmanSpawner/SnowmanSpawnTimer" to="SnowmanSpawner" method="_on_snowman_spawn_timer_timeout"]
