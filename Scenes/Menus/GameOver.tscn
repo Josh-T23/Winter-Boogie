@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5ujvjd82ty4"]
+[gd_scene load_steps=9 format=3 uid="uid://c5ujvjd82ty4"]
 
 [ext_resource type="Script" uid="uid://cwwxels7pe8m1" path="res://Scripts/UI/GameOver.gd" id="1_jmfy1"]
+[ext_resource type="Script" uid="uid://wy6h6n4lifj2" path="res://Scenes/Menus/game_over.gd" id="2_igxvo"]
 
 [sub_resource type="Environment" id="Environment_4g1ep"]
 
@@ -88,6 +89,7 @@ text = "Game Over
 Score: 
 
 Press A to return to start"
+script = ExtResource("2_igxvo")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)

@@ -1,10 +1,20 @@
 extends XRController3D
 
+
+@onready var origin = $%XROrigin3D
+var coordinate = 0.0
+
+var baseSpeed = 3
+
+var timer = 2
+
 var weapon = null
 var weapon_name = null
 
+
 # This is used for weapon switching.
 func _ready() -> void:
+	coordinate = position.y
 	weapon_name = str(Global.weapon)
 	weapon_name = normalize_name(weapon_name)
 	weapon = load("res://Prefabricated/Weapons/" + str(weapon_name) + ".tscn").instantiate()
@@ -12,6 +22,56 @@ func _ready() -> void:
 	var area = weapon.get_node("Area3D")
 	var col = area.get_node("CollisionShape3D")
 	col.name += "_weapon"
+	
+func _process(delta):
+	# BODY-FACING MOVEMENT
+
+	var forward = -origin.global_transform.basis.z
+	forward.y = 0.0
+	forward = forward.normalized()
+
+	var left = origin.global_transform.basis.x
+	left.y = 0.0
+	left = left.normalized()
+
+	# Now compute a "move_vec"
+	var move_vec = Vector3.ZERO
+	
+	# Strafe to the left.
+	if is_button_pressed("grip_click"):
+		var velocity = position.y - coordinate
+		if (velocity * 100 > 0.1) or (velocity * 100 < -0.25):
+			if velocity < 0: velocity = -velocity
+			move_vec += left * velocity
+			if move_vec != Vector3.ZERO:
+				origin.global_position += move_vec.normalized() * baseSpeed * delta
+		coordinate = position.y
+
+	# Forward/backward from controller movement
+	if is_button_pressed("ax_button"):
+		var velocity = position.y - coordinate
+		if (velocity * 100 > 0.1) or (velocity * 100 < -0.25):
+			if velocity < 0: velocity = -velocity
+			move_vec += forward * velocity
+			if move_vec != Vector3.ZERO:
+				origin.global_position += move_vec.normalized() * baseSpeed * delta
+		coordinate = position.y
+
+	elif is_button_pressed("by_button"):
+		var velocity = position.y - coordinate
+		#print("velocity: ", velocity * 100)
+		if (velocity * 100 > 0.1) or (velocity * 100 < -0.25):
+			if velocity < 0: velocity = -velocity
+			move_vec -= forward * velocity
+			# ------------------------------
+			# APPLY MOVEMENT (this is identical to PC)
+			# ------------------------------
+			if move_vec != Vector3.ZERO:
+				origin.global_position += move_vec.normalized() * baseSpeed * delta
+		coordinate = position.y
+
+	else:
+		coordinate = position.y
 	
 func normalize_name(text: String) -> String:
 	return text.to_lower().replace(" ", "_")
