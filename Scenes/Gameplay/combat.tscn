@@ -1,12 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://bwili1jprg1nc"]
+[gd_scene load_steps=16 format=3 uid="uid://bwili1jprg1nc"]
 
 [ext_resource type="Script" uid="uid://8m7ppoo12x2a" path="res://Scripts/Gameplay/combat.gd" id="1_raif2"]
 [ext_resource type="Script" uid="uid://bokja7bllhlrf" path="res://Scripts/Gameplay/Wall_Dodge/right_combat.gd" id="2_fvoc2"]
 [ext_resource type="Script" uid="uid://bqgtk7k101u48" path="res://Scripts/Mobs/SnowmanSpawner.gd" id="2_s0t75"]
 [ext_resource type="Script" uid="uid://d0aavo4hvrikt" path="res://Scripts/Gameplay/Wall_Dodge/combat_movement.gd" id="2_syqip"]
+[ext_resource type="Script" uid="uid://ydjr5bhk1olx" path="res://Scripts/Gameplay/left.gd" id="3_43lhf"]
 [ext_resource type="Script" uid="uid://nhh4sdlydd3w" path="res://Scripts/Gameplay/Wall_Dodge/combat_timer.gd" id="3_u30h6"]
 [ext_resource type="AudioStream" uid="uid://dm1t40p1epu8c" path="res://Assets/Audio/simple-whoosh.mp3" id="4_ga4lu"]
+[ext_resource type="Script" uid="uid://d4jmn4krj8vcd" path="res://Scripts/Gameplay/score_combat.gd" id="5_0brhv"]
 [ext_resource type="AudioStream" uid="uid://bcol23w2k8b01" path="res://Assets/Audio/cartoon-splat-310479.mp3" id="6_fvoc2"]
+[ext_resource type="Script" uid="uid://cktr87k7we2ng" path="res://Scripts/Gameplay/combat_timer.gd" id="6_ny2f7"]
 [ext_resource type="AudioStream" uid="uid://hlqewfaw0er" path="res://Assets/Audio/swing-whoosh-5-198498.mp3" id="7_v7dqf"]
 [ext_resource type="AudioStream" uid="uid://bdarjk767uie0" path="res://Assets/Audio/scifi-gun-shoot-1-266417.mp3" id="9_bu63p"]
 
@@ -23,12 +26,14 @@ size = Vector3(100, 0.1, 100)
 script = ExtResource("1_raif2")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
+unique_name_in_owner = true
 script = ExtResource("2_syqip")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 
 [node name="Left" type="XRController3D" parent="XROrigin3D"]
 tracker = &"left_hand"
+script = ExtResource("3_43lhf")
 
 [node name="Right" type="XRController3D" parent="XROrigin3D"]
 tracker = &"right_hand"
@@ -41,9 +46,27 @@ environment = SubResource("Environment_raif2")
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1, 0)
 
 [node name="CombatTimer" type="Timer" parent="WorldEnvironment"]
+unique_name_in_owner = true
 wait_time = 30.0
 autostart = true
 script = ExtResource("3_u30h6")
+
+[node name="Node3D" type="Node3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+
+[node name="Score" type="Label3D" parent="WorldEnvironment/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -4.39047)
+pixel_size = 0.01
+billboard = 1
+text = "Score: 0"
+script = ExtResource("5_0brhv")
+
+[node name="Timer" type="Label3D" parent="WorldEnvironment/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57124, -4.39047)
+pixel_size = 0.01
+billboard = 1
+text = "Time: 0"
+script = ExtResource("6_ny2f7")
 
 [node name="SnowmanSpawner" type="Node3D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("2_s0t75")

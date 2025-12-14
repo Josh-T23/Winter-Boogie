@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://w8h4w7woqghr" path="res://Scripts/Gameplay/Wall_Dodge/score.gd" id="7_2xmn2"]
 [ext_resource type="Script" uid="uid://3xmubhgu0fp" path="res://Scripts/Gameplay/Wall_Dodge/timer.gd" id="8_ndx36"]
 
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_57gs4"]
 radius = 0.1
 
