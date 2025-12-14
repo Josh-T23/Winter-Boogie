@@ -6,7 +6,7 @@ var coordinate = 0.0
 
 var baseSpeed = 3
 
-var timer = 2
+var timer = 1
 
 var weapon = null
 var weapon_name = null
@@ -33,6 +33,7 @@ func _process(delta):
 	var left = origin.global_transform.basis.x
 	left.y = 0.0
 	left = left.normalized()
+	
 
 	# Now compute a "move_vec"
 	var move_vec = Vector3.ZERO

@@ -8,22 +8,16 @@ var baseSpeed = 3
 var timer = 1.0
 
 func _process(delta):
-	# SNAP TURN USING CONTROLLER TILT
-	if timer > 0.0:
-		timer -= delta
 
-	#var rotate_degs = global_rotation_degrees
-	## rotate to left.
-	#if rotate_degs.z >= 45.0 and timer <= 0.0:
-		#timer = 1.0
-		#origin.rotate_y(deg_to_rad(45.0))
-#
-	## rotate to right
-	#if rotate_degs.z <= -45.0 and timer <= 0.0:
-		#timer = 1.0
-		## EXACT PC equivalence: rotation_degrees.y -= 1
-		## VR-SAFE VERSION:
-		#origin.rotate_y(deg_to_rad(-45.0))
+	if timer > 0.0:
+		#print("Timer: ", timer)
+		timer -= delta
+		return
+	
+		# SNAP TURN USING CONTROLLER Joystick Click
+	if is_button_pressed("primary_click"):
+		timer = 1
+		origin.rotate_y(deg_to_rad(-45.0))		
 
 	# BODY-FACING MOVEMENT
 
