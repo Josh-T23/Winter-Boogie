@@ -89,7 +89,8 @@ shape = SubResource("BoxShape3D_e7s6c")
 
 [node name="Label3D" type="Label3D" parent="WorldEnvironment/FrontBoundry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25139, 17.9481)
-text = "Press A to start"
+text = "Press A to start
+(Get ready to lean left and right)"
 
 [node name="BackBoundry" type="StaticBody3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
