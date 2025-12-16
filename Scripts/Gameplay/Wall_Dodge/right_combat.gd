@@ -2,6 +2,13 @@ extends XRController3D
 
 
 @onready var origin = $%XROrigin3D
+var MAX_FORWARD = -50.0
+var MAX_BACKWARD = 50.0
+var MAX_LEFT = -50.0
+var MAX_RIGHT = 50.0
+#var SPEED = 3
+@onready var left =  $%Left
+@onready var right =  $%Right
 var coordinate = 0.0
 
 var baseSpeed = 3
@@ -22,6 +29,28 @@ func _ready() -> void:
 	var area = weapon.get_node("Area3D")
 	var col = area.get_node("CollisionShape3D")
 	col.name += "_weapon"
+	
+func _physics_process(delta):
+	#print("Test")
+	if origin and left and right:
+		print("Origin: ", origin.global_position)
+		var left_push = origin.global_position.z - left.global_position.z
+		var right_push = origin.global_position.z - right.global_position.z
+		var direction = left_push + right_push
+	# and position.z + direction < MAX_RIGHT
+#	Boundaries for front and back
+		if origin.global_position.z + direction <= MAX_FORWARD:
+			#print("This is activating")
+			origin.global_position.z += delta * 100
+		if origin.global_position.z + direction >= MAX_BACKWARD:
+			origin.global_position.z -= delta * 100
+#			#	Boundaries for left and right
+		if origin.global_position.x + direction <= MAX_LEFT:
+			#print("This is activating")
+			origin.global_position.x += delta * 100
+		if origin.global_position.x + direction >= MAX_RIGHT:
+			origin.global_position.x -= delta * 100
+		
 	
 func _process(delta):
 	# BODY-FACING MOVEMENT

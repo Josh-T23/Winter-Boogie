@@ -26,14 +26,15 @@ func spawn_trees():
 	while x <= half_size:
 		var z := -half_size
 		while z <= half_size:
-			var decideTree = randi_range(1,2)
-			var tree = null
-			if decideTree == 1:
-				tree = tree_scene.instantiate()
-			else:
-				tree = snow_tree_scene.instantiate()
-			tree.position = Vector3(x, ground_height, z)
-			add_child(tree)
+			if not x == 0 and not z == 0:
+				var decideTree = randi_range(1,2)
+				var tree = null
+				if decideTree == 1:
+					tree = tree_scene.instantiate()
+				else:
+					tree = snow_tree_scene.instantiate()
+				tree.position = Vector3(x, ground_height, z)
+				add_child(tree)
 
 			z += spacing_meters
 		x += spacing_meters
