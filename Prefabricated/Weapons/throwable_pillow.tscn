@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtajx644lo8o3"]
+
+[ext_resource type="Script" uid="uid://c545menkqxqq5" path="res://Prefabricated/Weapons/throwable_pillow.gd" id="1_nur8i"]
+[ext_resource type="PackedScene" uid="uid://dytcguhxoqwcb" path="res://Prefabricated/Weapons/pillow.tscn" id="1_rbc48"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rbc48"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="RigidBody3D" type="RigidBody3D"]
+script = ExtResource("1_nur8i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_rbc48")
+
+[node name="Pillow" parent="." instance=ExtResource("1_rbc48")]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

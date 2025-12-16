@@ -84,13 +84,21 @@ func normalize_name(text: String) -> String:
 
 
 func _on_button_pressed(name):
-	if name == "trigger_click" and weapon_name == "snowball_cannon":
-		var bullet = load("res://Prefabricated/Weapons/snowball.tscn").instantiate()
-		var rootScene = get_tree().root.get_child(1)
-		rootScene.add_child(bullet)
-		bullet.global_position = global_position
-		var forward = -global_transform.basis.z
-		bullet.linear_velocity = forward * 20.0
-		rootScene.emit_signal("playSound", "Cannon")
+	if name == "trigger_click":
+		if weapon_name == "snowball_cannon":
+			var bullet = load("res://Prefabricated/Weapons/snowball.tscn").instantiate()
+			var rootScene = get_tree().root.get_child(1)
+			rootScene.add_child(bullet)
+			bullet.global_position = global_position
+			var forward = -global_transform.basis.z
+			bullet.linear_velocity = forward * 20.0
+			rootScene.emit_signal("playSound", "Cannon")
+		if weapon_name == "pillow":
+			var bullet = load("res://Prefabricated/Weapons/throwable_pillow.tscn").instantiate()
+			var rootScene = get_tree().root.get_child(1)
+			rootScene.add_child(bullet)
+			bullet.global_position = global_position
+			var forward = -global_transform.basis.z
+			bullet.linear_velocity = forward * 10.0
 		
 		#print("Trigger clicked!")
