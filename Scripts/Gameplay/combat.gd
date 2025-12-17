@@ -55,4 +55,5 @@ func round_over():
 		hits = 0
 		get_tree().change_scene_to_file("res://Scenes/Gameplay/owen_human_joystick.tscn")
 	else:
+		Leaderboard.add_score(int(Global.score))
 		get_tree().change_scene_to_file("res://Scenes/Menus/GameOver.tscn")

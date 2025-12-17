@@ -4,6 +4,7 @@ extends Timer
 
 func _on_timeout() -> void:
 	if Global.round == 3:
+		Leaderboard.add_score(int(Global.score))
 		get_tree().change_scene_to_file("res://Scenes/Menus/GameOver.tscn")
 		return
 	Global.round += 1
