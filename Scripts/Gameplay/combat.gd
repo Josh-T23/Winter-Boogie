@@ -5,12 +5,14 @@ var xr_interface: XRInterface
 @onready var creamAudio = $%CreamAudio
 @onready var batAudio = $%BatAudio
 @onready var cannonAudio = $%CannonAudio
+@onready var HealthBar = $%HealthBar
 
 signal playSound
 
 var hits = 0
 const MAX_HITS = 3
 const MAX_ROUNDS = 3
+var health = MAX_HITS
 
 func _ready():
 	playSound.connect(_play_sound)
@@ -39,6 +41,11 @@ func _play_sound(soundName):
 
 func snowman_hit():
 	hits += 1
+	health -= 1
+	if health == 2:
+		HealthBar.text = "❤️❤️"
+	if health == 1:
+		HealthBar.text = "❤️"
 	if hits >= MAX_HITS:
 		round_over()
 		

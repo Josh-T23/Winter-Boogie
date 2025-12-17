@@ -58,6 +58,12 @@ unique_name_in_owner = true
 wait_time = 3.0
 one_shot = true
 
+[node name="HealthBar" type="Label3D" parent="XROrigin3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.700114, -1)
+pixel_size = 0.002
+text = "❤️❤️❤️"
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_raif2")
 
