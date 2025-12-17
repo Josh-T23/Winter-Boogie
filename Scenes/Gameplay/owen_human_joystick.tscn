@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b6cn5b51hh2bu"]
+[gd_scene load_steps=17 format=3 uid="uid://b6cn5b51hh2bu"]
 
 [ext_resource type="Script" uid="uid://bar4s4e0e5j1s" path="res://Scripts/Gameplay/Wall_Dodge/owen_human_joystick.gd" id="1_6abh4"]
 [ext_resource type="PackedScene" uid="uid://ckl0pp1q5arin" path="res://Assets/Materials/OculusQuest2TouchController_Left.gltf" id="1_ph8ee"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cvt6800w6k661" path="res://Scripts/Gameplay/Wall_Dodge/spawner.gd" id="4_a5002"]
 [ext_resource type="Script" uid="uid://w8h4w7woqghr" path="res://Scripts/Gameplay/Wall_Dodge/score.gd" id="7_2xmn2"]
 [ext_resource type="Script" uid="uid://3xmubhgu0fp" path="res://Scripts/Gameplay/Wall_Dodge/timer.gd" id="8_ndx36"]
+[ext_resource type="Script" uid="uid://bxas32p1nfski" path="res://Scripts/Gameplay/jukebox.gd" id="9_w42rj"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_57gs4"]
 radius = 0.1
@@ -136,5 +137,9 @@ light_color = Color(1, 0, 0, 1)
 [node name="OmniLight3D3" type="OmniLight3D" parent="WorldEnvironment/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -10)
 light_color = Color(0, 1, 0, 1)
+
+[node name="Jukebox" type="AudioStreamPlayer3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.58193, -1.62026)
+script = ExtResource("9_w42rj")
 
 [connection signal="body_entered" from="XROrigin3D/XRCamera3D/Head" to="XROrigin3D/XRCamera3D/Head" method="_on_body_entered"]

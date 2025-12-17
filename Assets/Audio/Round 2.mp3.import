@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bddv3djpgye6y"
+path="res://.godot/imported/Round 2.mp3-d85b0634f0d8d2b45d36f4fb3637c6fc.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Round 2.mp3"
+dest_files=["res://.godot/imported/Round 2.mp3-d85b0634f0d8d2b45d36f4fb3637c6fc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

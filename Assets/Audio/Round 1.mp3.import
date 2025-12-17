@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://coy78kk5himuv"
+path="res://.godot/imported/Round 1.mp3-73c418902a555a1e0766fa0b3d8e0e51.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Round 1.mp3"
+dest_files=["res://.godot/imported/Round 1.mp3-73c418902a555a1e0766fa0b3d8e0e51.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
