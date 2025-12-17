@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://batory6d7buh"]
+
+[ext_resource type="Script" uid="uid://bhlxjc605q1um" path="res://Scripts/Weapons/baseball_ray.gd" id="1_avumm"]
+[ext_resource type="Script" uid="uid://bkyqtfc1h5wt7" path="res://Scripts/UI/ice_cream_label.gd" id="2_i86t3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r1vcv"]
+size = Vector3(5, 1, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ew2sp"]
+transparency = 1
+albedo_color = Color(0.744634, 0.348382, 0.0216667, 0.490196)
+
+[node name="BaseballRay" type="StaticBody3D"]
+script = ExtResource("1_avumm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_r1vcv")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(5, 1, 0.25)
+material = SubResource("StandardMaterial3D_ew2sp")
+
+[node name="RayTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76317, 0)
+pixel_size = 0.01
+billboard = 1
+script = ExtResource("2_i86t3")
+
+[connection signal="timeout" from="RayTimer" to="." method="_on_timer_timeout"]

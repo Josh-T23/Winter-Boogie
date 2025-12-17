@@ -2,10 +2,11 @@ extends XRController3D
 
 
 @onready var origin = $%XROrigin3D
-var MAX_FORWARD = -50.0
-var MAX_BACKWARD = 50.0
-var MAX_LEFT = -50.0
-var MAX_RIGHT = 50.0
+@onready var BaseballCooldown = $%BaseballCooldown
+var MAX_FORWARD = -35.0
+var MAX_BACKWARD = 35.0
+var MAX_LEFT = -35.0
+var MAX_RIGHT = 35.0
 #var SPEED = 3
 @onready var left =  $%Left
 @onready var right =  $%Right
@@ -33,7 +34,7 @@ func _ready() -> void:
 func _physics_process(delta):
 	#print("Test")
 	if origin and left and right:
-		print("Origin: ", origin.global_position)
+		#print("Origin: ", origin.global_position)
 		var left_push = origin.global_position.z - left.global_position.z
 		var right_push = origin.global_position.z - right.global_position.z
 		var direction = left_push + right_push
@@ -129,5 +130,12 @@ func _on_button_pressed(name):
 			bullet.global_position = global_position
 			var forward = -global_transform.basis.z
 			bullet.linear_velocity = forward * 10.0
-		
+		if weapon_name == "baseball_bat" and BaseballCooldown.is_stopped():
+			var bullet = load("res://Prefabricated/Weapons/baseball_ray.tscn").instantiate()
+			var rootScene = get_tree().root.get_child(1)
+			rootScene.add_child(bullet)
+			bullet.global_position = global_transform.origin - global_transform.basis.z * 2.0
+			BaseballCooldown.start()
+			#bullet.CollisionShape3D.size.z = 10
+
 		#print("Trigger clicked!")
