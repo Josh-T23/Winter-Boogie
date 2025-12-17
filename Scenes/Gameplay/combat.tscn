@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bwili1jprg1nc"]
+[gd_scene load_steps=17 format=3 uid="uid://bwili1jprg1nc"]
 
 [ext_resource type="Script" uid="uid://8m7ppoo12x2a" path="res://Scripts/Gameplay/combat.gd" id="1_raif2"]
 [ext_resource type="Script" uid="uid://bokja7bllhlrf" path="res://Scripts/Gameplay/Wall_Dodge/right_combat.gd" id="2_fvoc2"]
@@ -11,27 +11,12 @@
 [ext_resource type="AudioStream" uid="uid://bcol23w2k8b01" path="res://Assets/Audio/cartoon-splat-310479.mp3" id="6_fvoc2"]
 [ext_resource type="Script" uid="uid://cktr87k7we2ng" path="res://Scripts/Gameplay/combat_timer.gd" id="6_ny2f7"]
 [ext_resource type="AudioStream" uid="uid://hlqewfaw0er" path="res://Assets/Audio/swing-whoosh-5-198498.mp3" id="7_v7dqf"]
-[ext_resource type="Script" uid="uid://c8ikwhydcj5oe" path="res://Scripts/UI/HealthBar.gd" id="8_wyasj"]
 [ext_resource type="Script" uid="uid://b5xhcghp4esk3" path="res://Scripts/Gameplay/tree_spaner.gd" id="8_yyes1"]
 [ext_resource type="AudioStream" uid="uid://bdarjk767uie0" path="res://Assets/Audio/scifi-gun-shoot-1-266417.mp3" id="9_bu63p"]
 
 [sub_resource type="Environment" id="Environment_raif2"]
 fog_enabled = true
 fog_light_color = Color(0.182241, 0.590447, 0.801286, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_48ufi"]
-albedo_color = Color(0.117647, 0.117647, 0.117647, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_uejj2"]
-material = SubResource("StandardMaterial3D_48ufi")
-size = Vector3(1, 0.1, 0.01)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mpdn6"]
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_dfhte"]
-material = SubResource("StandardMaterial3D_mpdn6")
-size = Vector3(1, 0.1, 0.01)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bu63p"]
 
@@ -83,16 +68,6 @@ pixel_size = 0.01
 billboard = 1
 text = "Time: 0"
 script = ExtResource("6_ny2f7")
-
-[node name="HealthBar" type="Node3D" parent="WorldEnvironment/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, -4.39)
-script = ExtResource("8_wyasj")
-
-[node name="Background" type="MeshInstance3D" parent="WorldEnvironment/Node3D/HealthBar"]
-mesh = SubResource("BoxMesh_uejj2")
-
-[node name="Fill" type="MeshInstance3D" parent="WorldEnvironment/Node3D/HealthBar"]
-mesh = SubResource("BoxMesh_dfhte")
 
 [node name="Tree Spaner" type="Node3D" parent="WorldEnvironment"]
 script = ExtResource("8_yyes1")
