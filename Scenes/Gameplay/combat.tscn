@@ -55,12 +55,12 @@ one_shot = true
 
 [node name="IceCreamCooldown" type="Timer" parent="XROrigin3D/Right"]
 unique_name_in_owner = true
-wait_time = 3.0
+wait_time = 5.0
 one_shot = true
 
 [node name="HealthBar" type="Label3D" parent="XROrigin3D"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.700114, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05553, -1)
 pixel_size = 0.002
 text = "❤️❤️❤️"
 
@@ -163,6 +163,7 @@ volume_db = -15.0
 autoplay = true
 
 [connection signal="button_pressed" from="XROrigin3D/Right" to="XROrigin3D/Right" method="_on_button_pressed"]
+[connection signal="timeout" from="XROrigin3D/Right/BaseballCooldown" to="XROrigin3D/Right" method="_on_baseball_cooldown_timeout"]
 [connection signal="timeout" from="WorldEnvironment/CombatTimer" to="WorldEnvironment/CombatTimer" method="_on_timeout"]
 [connection signal="timeout" from="WorldEnvironment/Node3D/Round/RoundTextTimer" to="WorldEnvironment/Node3D/Round" method="_on_round_text_timer_timeout"]
 [connection signal="timeout" from="SnowmanSpawner/Timer" to="SnowmanSpawner" method="_on_timer_timeout"]
