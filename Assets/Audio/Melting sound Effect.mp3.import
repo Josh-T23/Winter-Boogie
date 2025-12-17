@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bobj71il0fild"
+path="res://.godot/imported/Melting sound Effect.mp3-4ae0420fc8125b24d337a6e2be95ae2a.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Melting sound Effect.mp3"
+dest_files=["res://.godot/imported/Melting sound Effect.mp3-4ae0420fc8125b24d337a6e2be95ae2a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

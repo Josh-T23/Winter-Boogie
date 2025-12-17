@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://be5xdr8lt5rd6"]
+[gd_scene load_steps=17 format=3 uid="uid://be5xdr8lt5rd6"]
 
 [ext_resource type="Script" uid="uid://ckqq5noag8peq" path="res://Scripts/UI/weapon_switch.gd" id="1_3av2h"]
 [ext_resource type="Script" uid="uid://b10s8ujxf6mw4" path="res://Scripts/UI/weapon_switch_controller.gd" id="2_ha0fl"]
@@ -6,20 +6,29 @@
 [ext_resource type="QuadMesh" uid="uid://c87rus6r12bhq" path="res://Materials/bat_mesh.tres" id="4_3c43u"]
 [ext_resource type="Script" uid="uid://q7v76fwjm1cc" path="res://Scripts/Gameplay/score_shower.gd" id="4_eim28"]
 [ext_resource type="QuadMesh" uid="uid://df7j4qhp6867p" path="res://Materials/secret_mesh.tres" id="5_b4ff2"]
+[ext_resource type="Script" uid="uid://bo5rdx6ehdub7" path="res://Scenes/Menus/pillow_select.gd" id="6_hgdga"]
+[ext_resource type="Script" uid="uid://d1alxqagpvmhr" path="res://Scenes/Menus/ice_cream_select.gd" id="6_lugu6"]
+[ext_resource type="Material" uid="uid://dh7nsw5df1872" path="res://Materials/weapon_desc.tres" id="7_b4ff2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3av2h"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ha0fl"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hgdga"]
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_x50hc"]
-material = SubResource("StandardMaterial3D_ha0fl")
+material = SubResource("StandardMaterial3D_hgdga")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_emdri"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lugu6"]
 albedo_color = Color(1, 1, 0.262745, 1)
 
+[sub_resource type="QuadMesh" id="QuadMesh_30dop"]
+material = SubResource("StandardMaterial3D_lugu6")
+
 [sub_resource type="QuadMesh" id="QuadMesh_ef1g6"]
-material = SubResource("StandardMaterial3D_emdri")
+material = ExtResource("7_b4ff2")
+
+[sub_resource type="QuadMesh" id="QuadMesh_a70l6"]
+material = ExtResource("7_b4ff2")
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_3av2h")
@@ -91,7 +100,8 @@ text = "-100 points"
 
 [node name="Ice Cream" type="Area3D" parent="WeaponMenu3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.403624, -0.1, -2.48008)
-script = ExtResource("3_x50hc")
+script = ExtResource("6_lugu6")
+cost = 15
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WeaponMenu3D/Ice Cream"]
 mesh = SubResource("QuadMesh_x50hc")
@@ -110,10 +120,10 @@ text = "-15 points"
 
 [node name="Pillow" type="Area3D" parent="WeaponMenu3D"]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -1.7, -0.1, -2)
-script = ExtResource("3_x50hc")
+script = ExtResource("6_hgdga")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WeaponMenu3D/Pillow"]
-mesh = SubResource("QuadMesh_ef1g6")
+mesh = SubResource("QuadMesh_30dop")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WeaponMenu3D/Pillow"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0516075, 0, -0.625308)
@@ -138,5 +148,32 @@ transform = Transform3D(1, 0, 0, 0, -0.985609, 0.16904, 0, -0.16904, -0.985609, 
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.78417, 0, -0.620546, 0, 1, 0, 0.620546, 0, -0.78417, 1.36822, -0.118237, 0)
+
+[node name="PillowDesc" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-0.852312, 0, -0.523034, 0, 0.8, 0, 0.523034, 0, -0.852312, 1.753, 0.335677, 2.61088)
+mesh = SubResource("QuadMesh_ef1g6")
+skeleton = NodePath("")
+
+[node name="Label3D" type="Label3D" parent="PillowDesc"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.0103149, 8.9407e-08, 0.0283225)
+pixel_size = 0.0028
+
+[node name="IceCreamDesc" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-0.999641, 0, -0.026805, 0, 0.84, 0, 0.026805, 0, -0.999641, 0.469958, 0.30754, 3.12554)
+mesh = SubResource("QuadMesh_a70l6")
+skeleton = NodePath("")
+
+[node name="Label3D" type="Label3D" parent="IceCreamDesc"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000246882, 0, 0.00920725)
+pixel_size = 0.003
+text = "Type: Melee 
+& Magic
+
+Press Right Trigger 
+to activate. 
+Careful, it is only
+ temporary!"
 
 [connection signal="button_pressed" from="XROrigin3D/XRController3DRight" to="XROrigin3D/XRController3DRight" method="_on_button_pressed"]
