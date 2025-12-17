@@ -1,7 +1,7 @@
 extends Node
 
 const SAVE_PATH := "user://leaderboard.save"
-const MAX_ENTRIES := 10
+const MAX_ENTRIES := 8
 
 var scores: Array[int] = []
 

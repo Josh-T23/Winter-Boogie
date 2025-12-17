@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://cvt6800w6k661" path="res://Scripts/Gameplay/Wall_Dodge/spawner.gd" id="4_a5002"]
 [ext_resource type="Script" uid="uid://w8h4w7woqghr" path="res://Scripts/Gameplay/Wall_Dodge/score.gd" id="7_2xmn2"]
 [ext_resource type="Script" uid="uid://3xmubhgu0fp" path="res://Scripts/Gameplay/Wall_Dodge/timer.gd" id="8_ndx36"]
-[ext_resource type="Script" path="res://Scripts/Gameplay/jukebox.gd" id="9_w42rj"]
+[ext_resource type="Script" uid="uid://bxas32p1nfski" path="res://Scripts/Gameplay/jukebox.gd" id="9_w42rj"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_57gs4"]
 radius = 0.1

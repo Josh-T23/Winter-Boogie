@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://c5ujvjd82ty4"]
+[gd_scene load_steps=11 format=3 uid="uid://c5ujvjd82ty4"]
 
 [ext_resource type="Script" uid="uid://cwwxels7pe8m1" path="res://Scripts/UI/GameOver.gd" id="1_jmfy1"]
 [ext_resource type="Script" uid="uid://wy6h6n4lifj2" path="res://Scenes/Menus/game_over.gd" id="2_igxvo"]
 [ext_resource type="Script" uid="uid://cgpl23xpcsutx" path="res://Scripts/UI/leaderboard_1.gd" id="3_n12m5"]
+[ext_resource type="Script" uid="uid://mgf6keshsbk4" path="res://Scripts/UI/entries.gd" id="4_bcim4"]
 
 [sub_resource type="Environment" id="Environment_4g1ep"]
 
@@ -97,8 +98,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.793, 1.838, 0.25)
 script = ExtResource("3_n12m5")
 
 [node name="Title" type="Label3D" parent="WorldEnvironment/FrontWall/Leaderboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0871274, 0.39713, 0)
+text = "Leaderboard"
 
 [node name="Entries" type="Label3D" parent="WorldEnvironment/FrontWall/Leaderboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.272777, 0)
+vertical_alignment = 0
+script = ExtResource("4_bcim4")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
