@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5cw82li6r6v1"]
+
+[ext_resource type="Script" uid="uid://cau5p2a7eil57" path="res://Scripts/Weapons/snowball.gd" id="1_r8xpq"]
+[ext_resource type="AudioStream" uid="uid://crwq1mwmkfnl3" path="res://Assets/Audio/snowball-hit-02-279698.mp3" id="2_2347l"]
+[ext_resource type="AudioStream" uid="uid://b6p6icxiyqkdu" path="res://Assets/Audio/bonk-sound-effect-36055.mp3" id="3_2347l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_olpde"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gj1u7"]
+radius = 0.25
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_olpde"]
+radius = 1.0
+
+[node name="RigidBody3D" type="RigidBody3D"]
+script = ExtResource("1_r8xpq")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(0.483895, 0, 0, 0, 0.499891, 0, 0, 0, 0.499891, 0, 0, 0)
+radius = 2.0
+material = SubResource("StandardMaterial3D_olpde")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+visible = false
+shape = SubResource("SphereShape3D_gj1u7")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_olpde")
+
+[node name="SnowballHit" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_2347l")
+
+[node name="BonkSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_2347l")
+autoplay = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

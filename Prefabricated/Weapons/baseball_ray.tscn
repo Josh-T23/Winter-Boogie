@@ -17,7 +17,7 @@ material = ExtResource("2_cnbo0")
 inner_radius = 2.95
 outer_radius = 3.0
 
-[node name="IceCreamRay" type="StaticBody3D"]
+[node name="BaseballRay" type="StaticBody3D"]
 script = ExtResource("1_avumm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://q64606efs0vg"]
+[gd_scene load_steps=9 format=3 uid="uid://q64606efs0vg"]
 
 [ext_resource type="Script" uid="uid://dww1lxirhfmel" path="res://Scripts/Weapons/ice_cream_ray.gd" id="1_nh18d"]
 [ext_resource type="Material" uid="uid://6gacvhau4ah8" path="res://Materials/ice_cream_ray.tres" id="2_mrf6q"]
@@ -13,8 +13,12 @@ radius = 3.0
 height = 0.5
 radius = 3.0
 
-[sub_resource type="TorusMesh" id="TorusMesh_nh18d"]
-material = ExtResource("2_mrf6q")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yseb6"]
+transparency = 1
+albedo_color = Color(1, 0.482353, 1, 0.568627)
+
+[sub_resource type="TorusMesh" id="TorusMesh_64mho"]
+material = SubResource("StandardMaterial3D_yseb6")
 inner_radius = 2.95
 outer_radius = 3.0
 
@@ -45,7 +49,7 @@ shape = SubResource("CylinderShape3D_mrf6q")
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
 lifetime = 3.0
 speed_scale = 1.25
-mesh = SubResource("TorusMesh_nh18d")
+mesh = SubResource("TorusMesh_64mho")
 gravity = Vector3(0, 1, 0)
 
 [node name="IceCreamAudio" type="AudioStreamPlayer3D" parent="."]
