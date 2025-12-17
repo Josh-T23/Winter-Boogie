@@ -135,7 +135,8 @@ func _on_button_pressed(name):
 			var bullet = load("res://Prefabricated/Weapons/baseball_ray.tscn").instantiate()
 			var rootScene = get_tree().root.get_child(1)
 			rootScene.add_child(bullet)
-			bullet.global_position = global_transform.origin - global_transform.basis.z * 2.0
+			#bullet.global_position = global_transform.origin - global_transform.basis.z * 2.0
+			bullet.global_position = global_position * Vector3(1,0,1)
 			BaseballCooldown.start()
 		if weapon_name == "ice_cream" and IceCreamCooldown.is_stopped():
 			var bullet = load("res://Prefabricated/Weapons/ice_cream_ray.tscn").instantiate()
