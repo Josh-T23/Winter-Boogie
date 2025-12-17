@@ -20,7 +20,7 @@ radius = 0.25
 material = SubResource("StandardMaterial3D_tmy4y")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 1.75
 one_shot = true
 autostart = true
 

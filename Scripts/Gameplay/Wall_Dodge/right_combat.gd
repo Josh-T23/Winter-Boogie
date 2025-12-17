@@ -3,6 +3,7 @@ extends XRController3D
 
 @onready var origin = $%XROrigin3D
 @onready var BaseballCooldown = $%BaseballCooldown
+@onready var IceCreamCooldown = $%IceCreamCooldown
 var MAX_FORWARD = -35.0
 var MAX_BACKWARD = 35.0
 var MAX_LEFT = -35.0
@@ -136,6 +137,22 @@ func _on_button_pressed(name):
 			rootScene.add_child(bullet)
 			bullet.global_position = global_transform.origin - global_transform.basis.z * 2.0
 			BaseballCooldown.start()
-			#bullet.CollisionShape3D.size.z = 10
+		if weapon_name == "ice_cream" and IceCreamCooldown.is_stopped():
+			var bullet = load("res://Prefabricated/Weapons/ice_cream_ray.tscn").instantiate()
+			var rootScene = get_tree().root.get_child(1)
+			rootScene.add_child(bullet)
+			#var collisionShape = bullet.get_node("CollisionShape3D")
+			#collisionShape.shape.size.z = 10
+			#
+			#var box = bullet.get_node("CSGBox3D")
+			#box.size.z = 10
+#
+			#var area_collision = bullet.get_node("Area3D/CollisionShape3D")
+			#area_collision.shape.size.z = 10
+			
+			bullet.global_position = global_position * Vector3(1,0,1)
+
+			IceCreamCooldown.start()
+			
 
 		#print("Trigger clicked!")
