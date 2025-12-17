@@ -148,9 +148,13 @@ text = "Free
 "
 
 [node name="Score Shower" type="Label3D" parent="WeaponMenu3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0675548, 0.76715, -2.51933)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0675548, 1.26188, -2.51933)
 text = "Your Score: "
 script = ExtResource("4_eim28")
+
+[node name="Label3D" type="Label3D" parent="WeaponMenu3D/Score Shower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.370509, 0)
+text = "Select with right trigger"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.985609, 0.16904, 0, -0.16904, -0.985609, 0, 2.00321, -0.115811)

@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var area_size_meters: float = 100.0
-@export var spacing_meters: float = 5.0
+@export var spacing_meters: float = 4.0
 @export var ground_height: float = 0.0
 
 const TREE_SCENE_PATH = "res://Assets/Models/Tree.tscn"
