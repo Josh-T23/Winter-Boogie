@@ -1,10 +1,17 @@
 extends XROrigin3D
-
-#var speed = 2
 #
+##var speed = 2
+#var MAX_LEFT = 100.0
+#var MAX_RIGHT = -100.0
+#var SPEED = 3
+#@onready var camera = $XRCamera3D
+#@onready var left =  $Left
+#@onready var right =  $Right
+##
 #func _process(delta: float) -> void:
-	#var push_x = $XRCamera3D.global_position.x - $Left.global_position.x
-	#var push_z = $XRCamera3D.global_position.z - $Left.global_position.z
-	#
-	#position.x += push_x * delta * speed
-	#position.z += push_z * delta * speed
+	##print("Test")
+	#var left_push = camera.global_position.z - left.global_position.z
+	#var right_push = camera.global_position.z - right.global_position.z
+	#var direction = left_push + right_push
+	#if position.z + direction > MAX_LEFT and position.z + direction < MAX_RIGHT:
+		#position.z += direction * delta * SPEED

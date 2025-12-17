@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bwili1jprg1nc"]
+[gd_scene load_steps=22 format=3 uid="uid://bwili1jprg1nc"]
 
 [ext_resource type="Script" uid="uid://8m7ppoo12x2a" path="res://Scripts/Gameplay/combat.gd" id="1_raif2"]
 [ext_resource type="Script" uid="uid://bokja7bllhlrf" path="res://Scripts/Gameplay/Wall_Dodge/right_combat.gd" id="2_fvoc2"]
@@ -11,8 +11,13 @@
 [ext_resource type="AudioStream" uid="uid://bcol23w2k8b01" path="res://Assets/Audio/cartoon-splat-310479.mp3" id="6_fvoc2"]
 [ext_resource type="Script" uid="uid://cktr87k7we2ng" path="res://Scripts/Gameplay/combat_timer.gd" id="6_ny2f7"]
 [ext_resource type="AudioStream" uid="uid://hlqewfaw0er" path="res://Assets/Audio/swing-whoosh-5-198498.mp3" id="7_v7dqf"]
+[ext_resource type="AudioStream" uid="uid://0bltmvruo2pl" path="res://Assets/Audio/Round One Audio.mp3" id="8_48ufi"]
+[ext_resource type="Script" uid="uid://dvjw8xbwpe204" path="res://Scripts/UI/round.gd" id="8_dfhte"]
 [ext_resource type="Script" uid="uid://b5xhcghp4esk3" path="res://Scripts/Gameplay/tree_spaner.gd" id="8_yyes1"]
 [ext_resource type="AudioStream" uid="uid://bdarjk767uie0" path="res://Assets/Audio/scifi-gun-shoot-1-266417.mp3" id="9_bu63p"]
+[ext_resource type="AudioStream" uid="uid://bd6fbfbeh4mb4" path="res://Assets/Audio/Round Two Audio.mp3" id="9_mpdn6"]
+[ext_resource type="AudioStream" uid="uid://car65t5owgl1e" path="res://Assets/Audio/Round Three Audio.mp3" id="10_dfhte"]
+[ext_resource type="AudioStream" uid="uid://drl4ybsacbf58" path="res://Assets/Audio/combat-music.mp3" id="14_wyasj"]
 
 [sub_resource type="Environment" id="Environment_raif2"]
 fog_enabled = true
@@ -21,24 +26,32 @@ fog_light_color = Color(0.182241, 0.590447, 0.801286, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bu63p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s0t75"]
-size = Vector3(100, 0.1, 100)
+size = Vector3(125, 0.1, 125)
 
 [node name="Combat" type="Node3D"]
 script = ExtResource("1_raif2")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13743, 0)
 script = ExtResource("2_syqip")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 
 [node name="Left" type="XRController3D" parent="XROrigin3D"]
+unique_name_in_owner = true
 tracker = &"left_hand"
 script = ExtResource("3_43lhf")
 
 [node name="Right" type="XRController3D" parent="XROrigin3D"]
+unique_name_in_owner = true
 tracker = &"right_hand"
 script = ExtResource("2_fvoc2")
+
+[node name="BaseballCooldown" type="Timer" parent="XROrigin3D/Right"]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_raif2")
@@ -53,7 +66,7 @@ autostart = true
 script = ExtResource("3_u30h6")
 
 [node name="Node3D" type="Node3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.959204, 0)
 
 [node name="Score" type="Label3D" parent="WorldEnvironment/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -4.39047)
@@ -68,6 +81,30 @@ pixel_size = 0.01
 billboard = 1
 text = "Time: 0"
 script = ExtResource("6_ny2f7")
+
+[node name="Round" type="Label3D" parent="WorldEnvironment/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.57124, -4.39047)
+pixel_size = 0.015
+billboard = 1
+text = "Round: 1"
+script = ExtResource("8_dfhte")
+
+[node name="RoundTextTimer" type="Timer" parent="WorldEnvironment/Node3D/Round"]
+unique_name_in_owner = true
+wait_time = 2.5
+one_shot = true
+
+[node name="RoundOne" type="AudioStreamPlayer" parent="WorldEnvironment/Node3D/Round"]
+unique_name_in_owner = true
+stream = ExtResource("8_48ufi")
+
+[node name="RoundTwo" type="AudioStreamPlayer" parent="WorldEnvironment/Node3D/Round"]
+unique_name_in_owner = true
+stream = ExtResource("9_mpdn6")
+
+[node name="RoundThree" type="AudioStreamPlayer" parent="WorldEnvironment/Node3D/Round"]
+unique_name_in_owner = true
+stream = ExtResource("10_dfhte")
 
 [node name="Tree Spaner" type="Node3D" parent="WorldEnvironment"]
 script = ExtResource("8_yyes1")
@@ -87,7 +124,7 @@ wait_time = 0.5
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D"]
-size = Vector3(100, 0.1, 100)
+size = Vector3(125, 0.1, 125)
 material = SubResource("StandardMaterial3D_bu63p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
@@ -109,7 +146,13 @@ stream = ExtResource("7_v7dqf")
 unique_name_in_owner = true
 stream = ExtResource("9_bu63p")
 
+[node name="CombatBG" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_wyasj")
+volume_db = -15.0
+autoplay = true
+
 [connection signal="button_pressed" from="XROrigin3D/Right" to="XROrigin3D/Right" method="_on_button_pressed"]
 [connection signal="timeout" from="WorldEnvironment/CombatTimer" to="WorldEnvironment/CombatTimer" method="_on_timeout"]
+[connection signal="timeout" from="WorldEnvironment/Node3D/Round/RoundTextTimer" to="WorldEnvironment/Node3D/Round" method="_on_round_text_timer_timeout"]
 [connection signal="timeout" from="SnowmanSpawner/Timer" to="SnowmanSpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="SnowmanSpawner/SnowmanSpawnTimer" to="SnowmanSpawner" method="_on_snowman_spawn_timer_timeout"]

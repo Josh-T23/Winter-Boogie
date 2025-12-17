@@ -7,7 +7,7 @@ extends Node3D
 
 @export var player: Node3D
 @export var dist = 12
-@export var low_time = 1.5
+@export var low_time = 1.0
 @export var high_time = 3.0
 @export var positionUsed = 0
 
@@ -34,7 +34,7 @@ func spawn():
 
 
 	#instance.global_position = player.global_position + Vector3(x, 0, z)
-	positionUsed = player.global_position + Vector3(randf_range(12, 4), 0, z)
+	positionUsed = player.global_position + Vector3(randf_range(-12, 12), 0, z)
 
 	fog.global_position = positionUsed
 	scene_root.add_child(fog)

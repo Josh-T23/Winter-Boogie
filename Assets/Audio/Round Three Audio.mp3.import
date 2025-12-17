@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://car65t5owgl1e"
+path="res://.godot/imported/Round Three Audio.mp3-eb902ea3fb415baf95115ec550b597c5.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Round Three Audio.mp3"
+dest_files=["res://.godot/imported/Round Three Audio.mp3-eb902ea3fb415baf95115ec550b597c5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
