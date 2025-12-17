@@ -38,6 +38,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 1, 0)
 tracker = &"right_hand"
 script = ExtResource("1_jmfy1")
 
+[node name="Timer" type="Timer" parent="XROrigin3D/RightHand"]
+wait_time = 5.0
+autostart = true
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4g1ep")
 
