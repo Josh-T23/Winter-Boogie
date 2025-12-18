@@ -2,9 +2,9 @@ extends Node
 
 var score = 0
 var weapon = null
-var round = 3
+var round = 1
 
 func reset():
 	score = 0
 	weapon = null
-	round = 3
+	round = 1

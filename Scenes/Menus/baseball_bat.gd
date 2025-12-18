@@ -14,7 +14,7 @@ func _ready() -> void:
 		set_collision_layer_value(1, false)
 	else:
 		var label = description.get_child(0)
-		label.text = "Type: Melee\n" + "& Magic\n\n" + "Press Right Trigger\n"+ "to build wall."+"
+		label.text = "Type: Melee\n" + "& Magic\n\n" + "Press Right Trigger\n"+ "to unleash \nbig snowballs."+"
 		+4 points for every\nhit!\n"
 #Type: Melee 
 #& Magic
