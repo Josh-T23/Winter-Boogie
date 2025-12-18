@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cw7rdsucrtvmv"]
 
 [ext_resource type="Script" uid="uid://cymwx5r21n5ap" path="res://Scripts/Mobs/Snowman.gd" id="1_f8dad"]
-[ext_resource type="PackedScene" uid="uid://djxx4fgk7qwv3" path="res://Prefabricated/Mobs/snowman_5.tscn" id="2_1wyfp"]
+[ext_resource type="PackedScene" uid="uid://djxx4fgk7qwv3" path="res://Prefabricated/Mobs/Snowman5Folder/snowman_5.tscn" id="2_1wyfp"]
 [ext_resource type="AudioStream" uid="uid://c1fbc3fo5l23v" path="res://Assets/Audio/groaning effect.mp3" id="3_6ukuc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f8dad"]

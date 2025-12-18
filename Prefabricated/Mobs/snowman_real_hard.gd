@@ -1,10 +1,11 @@
 extends RigidBody3D
 
-@export var hp = 1.0
+@export var hp = 3.0
 @export var speed = 5.0
 @export var dir = Vector3(0, 0, 1)
 @export var player: Node3D
 @onready var groanEffect = $%GroanEffect
+@onready var hearts = $%Label3D
 
 #signal snowman_died
 #
@@ -32,6 +33,12 @@ func _physics_process(delta):
 		var combat_node = get_tree().current_scene
 		combat_node.snowman_hit()
 		queue_free()
+	
+	#var heartNums = hp
+	#hearts.text = ""
+	#while(heartNums > 0):
+		#hearts.text = hearts.text + "❤️"
+		#heartNums -= 1
 		
 #func _died():
 	##print("Snowman Parent: ", get_parent().name)

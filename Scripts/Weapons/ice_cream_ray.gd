@@ -9,6 +9,15 @@ func _on_timer_timeout():
 func _on_area_3d_body_entered(body):
 	if body.name.contains("SnowmanReal"):
 		Global.score += 1
+		if body.hp - 1 > 0:
+			body.hp -= 1
+			var getLabel = body.get_node("Label3D")
+			var heartNums = body.hp
+			getLabel.text = ""
+			while(heartNums > 0):
+				getLabel.text = getLabel.text + "❤️"
+				heartNums -= 1
+			return
 		var rootScene = get_tree().root.get_child(1)
 		var timesSpawn = 3
 		while(timesSpawn != 0):

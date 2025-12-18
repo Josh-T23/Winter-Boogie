@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dt11mwlld8fyh"]
+
+[ext_resource type="Script" uid="uid://cymwx5r21n5ap" path="res://Scripts/Mobs/Snowman.gd" id="1_7evob"]
+[ext_resource type="PackedScene" uid="uid://8mhq8ipjp0dw" path="res://Prefabricated/Mobs/Snowman5Folder/snowman_5_easy.tscn" id="3_7evob"]
+[ext_resource type="AudioStream" uid="uid://c1fbc3fo5l23v" path="res://Assets/Audio/groaning effect.mp3" id="3_8ys06"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f8dad"]
+size = Vector3(0.501953, 1.14185, 0.476563)
+
+[node name="SnowmanRealEasy" type="RigidBody3D"]
+collision_mask = 3
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+contact_monitor = true
+max_contacts_reported = 4
+script = ExtResource("1_7evob")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.152108, 0.580933, 0)
+shape = SubResource("BoxShape3D_f8dad")
+
+[node name="GroanEffect" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_8ys06")
+volume_db = -4.0
+
+[node name="Snowman5" parent="." instance=ExtResource("3_7evob")]
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.123477, 1.27821, 0)
+pixel_size = 0.003
+billboard = 1
+text = "❤️"
