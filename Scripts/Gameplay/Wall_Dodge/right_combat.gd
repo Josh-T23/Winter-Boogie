@@ -123,7 +123,9 @@ func _on_button_pressed(name):
 			bullet.global_position = global_position
 			var forward = -global_transform.basis.z
 			bullet.linear_velocity = forward * 20.0
-			rootScene.emit_signal("playSound", "Cannon")
+			#rootScene.emit_signal("playSound", "Cannon")
+			var sound = $%CannonAudio
+			sound.play()
 		if weapon_name == "pillow":
 			var bullet = load("res://Prefabricated/Weapons/throwable_pillow.tscn").instantiate()
 			var rootScene = get_tree().root.get_child(1)
@@ -131,6 +133,7 @@ func _on_button_pressed(name):
 			bullet.global_position = global_position
 			var forward = -global_transform.basis.z
 			bullet.linear_velocity = forward * 10.0
+			
 		if weapon_name == "baseball_bat" and BaseballCooldown.is_stopped():
 			var bullet = load("res://Prefabricated/Weapons/snowballBig.tscn").instantiate()
 			var rootScene = get_tree().root.get_child(1)

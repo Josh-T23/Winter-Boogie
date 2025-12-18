@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtajx644lo8o3"]
+[gd_scene load_steps=5 format=3 uid="uid://dtajx644lo8o3"]
 
 [ext_resource type="Script" uid="uid://c545menkqxqq5" path="res://Prefabricated/Weapons/throwable_pillow.gd" id="1_nur8i"]
 [ext_resource type="PackedScene" uid="uid://dytcguhxoqwcb" path="res://Prefabricated/Weapons/pillow.tscn" id="1_rbc48"]
+[ext_resource type="AudioStream" uid="uid://cng4xm5bnh0uj" path="res://Assets/Audio/big-pillow-hit-101877.mp3" id="3_oqbhx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rbc48"]
 size = Vector3(0.1, 0.1, 0.1)
@@ -17,5 +18,9 @@ shape = SubResource("BoxShape3D_rbc48")
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="PillowAudio" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_oqbhx")
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

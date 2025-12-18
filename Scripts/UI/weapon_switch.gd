@@ -23,7 +23,7 @@ func _ready():
 		print("Failed to initialize OpenXR")
 	
 	menu.visible = true
-	spawn_weapon()
+	#spawn_weapon()
 	
 	for i in range(weapons.size()):
 		var button = menu.get_node("Button" + str(i))

@@ -1,5 +1,7 @@
 extends Area3D
 
+@onready var creamAudio = $%CreamAudio
+
 func _on_body_entered(body):
 	#print("body: ", body.name)
 	#print("Something collided")
@@ -15,5 +17,6 @@ func _on_body_entered(body):
 			timesSpawn -= 1
 		#print(rootScene.name)
 		body.queue_free()
+		creamAudio.play()
 		# Play Sound Effect when killing snowman.
-		rootScene.emit_signal("playSound", "Ice Cream")
+		#rootScene.emit_signal("playSound", "Ice Cream")

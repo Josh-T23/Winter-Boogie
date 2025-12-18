@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://be5xdr8lt5rd6"]
+[gd_scene load_steps=22 format=3 uid="uid://be5xdr8lt5rd6"]
 
 [ext_resource type="Script" uid="uid://ckqq5noag8peq" path="res://Scripts/UI/weapon_switch.gd" id="1_3av2h"]
 [ext_resource type="Script" uid="uid://b10s8ujxf6mw4" path="res://Scripts/UI/weapon_switch_controller.gd" id="2_ha0fl"]
+[ext_resource type="PackedScene" uid="uid://dbol71gwe61ft" path="res://Assets/Models/oculus_quest_2_touch_controller_right.tscn" id="3_3lcf8"]
 [ext_resource type="Script" uid="uid://ca45r86jpckem" path="res://Scenes/Menus/baseball_bat.gd" id="3_30dop"]
 [ext_resource type="QuadMesh" uid="uid://c87rus6r12bhq" path="res://Materials/bat_mesh.tres" id="4_3c43u"]
 [ext_resource type="Script" uid="uid://q7v76fwjm1cc" path="res://Scripts/Gameplay/score_shower.gd" id="4_eim28"]
@@ -10,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bo5rdx6ehdub7" path="res://Scenes/Menus/pillow_select.gd" id="6_hgdga"]
 [ext_resource type="Script" uid="uid://d1alxqagpvmhr" path="res://Scenes/Menus/ice_cream_select.gd" id="6_lugu6"]
 [ext_resource type="Material" uid="uid://dh7nsw5df1872" path="res://Materials/weapon_desc.tres" id="7_b4ff2"]
+[ext_resource type="AudioStream" uid="uid://djq2h431qsqa1" path="res://Assets/Audio/merry-christmas-time-2-449254.mp3" id="11_a70l6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3av2h"]
 
@@ -56,6 +58,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00237274, 0)
 target_position = Vector3(0, 0, -10)
 collide_with_areas = true
 
+[node name="OculusQuest2TouchController_Right" parent="XROrigin3D/XRController3DRight" instance=ExtResource("3_3lcf8")]
+
 [node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
 tracker = &"left_hand"
 
@@ -65,6 +69,7 @@ transform = Transform3D(-0.999641, 0, -0.026805, 0, 1, 0, 0.026805, 0, -0.999641
 [node name="Baseball Bat" type="Area3D" parent="WeaponMenu3D"]
 transform = Transform3D(0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866026, 0.929464, -0.1, -2.02066)
 script = ExtResource("3_30dop")
+cost = 75
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WeaponMenu3D/Baseball Bat"]
 mesh = ExtResource("4_3c43u")
@@ -207,5 +212,9 @@ skeleton = NodePath("")
 [node name="Label3D" type="Label3D" parent="SnowballDesc"]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0218244, 0, 0.0355639)
 pixel_size = 0.003
+
+[node name="ShopBG" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_a70l6")
+autoplay = true
 
 [connection signal="button_pressed" from="XROrigin3D/XRController3DRight" to="XROrigin3D/XRController3DRight" method="_on_button_pressed"]
