@@ -65,7 +65,6 @@ transform = Transform3D(-0.999641, 0, -0.026805, 0, 1, 0, 0.026805, 0, -0.999641
 [node name="Baseball Bat" type="Area3D" parent="WeaponMenu3D"]
 transform = Transform3D(0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866026, 0.929464, -0.1, -2.02066)
 script = ExtResource("3_30dop")
-cost = 75
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WeaponMenu3D/Baseball Bat"]
 mesh = ExtResource("4_3c43u")
@@ -191,13 +190,13 @@ Careful, it is only
 
 [node name="BaseballDesc" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-0.879118, 0, 0.476607, 0, 0.8, 0, -0.476607, 0, -0.879118, -0.874967, 0.312212, 2.70202)
+transform = Transform3D(-0.879118, 0, 0.476607, 0, 1.056, 0, -0.476607, 0, -0.879118, -0.874967, 0.312212, 2.70202)
 mesh = SubResource("QuadMesh_3lcf8")
 skeleton = NodePath("")
 
 [node name="Label3D" type="Label3D" parent="BaseballDesc"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00602615, 0, 0.0111156)
-pixel_size = 0.003
+pixel_size = 0.0028
 
 [node name="SnowballDesc" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
