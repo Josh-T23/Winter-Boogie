@@ -9,6 +9,7 @@ func _on_timer_timeout():
 func _on_area_3d_body_entered(body):
 	if body.name.contains("SnowmanReal"):
 		Global.score += 1
+		meltAudio.play(7.1)
 		if body.hp - 2 > 0:
 			body.hp -= 2
 			var getLabel = body.get_node("Label3D")
@@ -25,5 +26,4 @@ func _on_area_3d_body_entered(body):
 			rootScene.add_child(snowmanDeath)
 			snowmanDeath.global_position = body.global_position
 			timesSpawn -= 1
-		meltAudio.play(7.1)
 		body.queue_free()

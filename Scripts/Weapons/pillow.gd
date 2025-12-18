@@ -8,6 +8,7 @@ func _on_body_entered(body):
 	if body.name.contains("SnowmanReal"):
 		#print("Detecting a snowman!")
 		Global.score += 1
+		pillowAudio.play()
 		if body.hp - 1 > 0:
 			body.hp -= 1
 			var getLabel = body.get_node("Label3D")
@@ -34,4 +35,4 @@ func _on_body_entered(body):
 		body.queue_free()
 		# Play Sound Effect when killing snowman.
 		#rootScene.emit_signal("playSound", "Pillow")
-		pillowAudio.play()
+		

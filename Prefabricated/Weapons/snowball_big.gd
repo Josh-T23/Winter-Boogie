@@ -15,6 +15,7 @@ func _on_area_3d_body_entered(body):
 	if body.name.contains("SnowmanReal"):
 		#print("Detecting a snowman!")
 		Global.score += 4
+		SnowballHit.play()
 		if body.hp - 3 > 0:
 			body.hp -= 3
 			var getLabel = body.get_node("Label3D")
@@ -38,5 +39,5 @@ func _on_area_3d_body_entered(body):
 		bullet.global_position = body.global_position * Vector3(1,0,1)
 		body.queue_free()
 		# Play Sound Effect when killing snowman.
-		SnowballHit.play()
+		
 		#rootScene.emit_signal("playSound", "Pillow")

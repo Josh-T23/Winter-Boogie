@@ -8,6 +8,7 @@ func _on_body_entered(body):
 	#print("Something collided")
 	if body.name.contains("SnowmanReal"):
 		#print("Detecting a snowman!")
+		creamAudio.play()
 		if body.hp - 1 > 0:
 			body.hp -= 1
 			var getLabel = body.get_node("Label3D")
@@ -33,6 +34,6 @@ func _on_body_entered(body):
 			#body.take_damage(damage)
 		
 		body.queue_free()
-		creamAudio.play()
+	
 		# Play Sound Effect when killing snowman.
 		#rootScene.emit_signal("playSound", "Ice Cream")
