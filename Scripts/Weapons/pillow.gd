@@ -1,10 +1,16 @@
 extends Area3D
+<<<<<<< Updated upstream
 @onready var pillowAudio = $%PillowAudio
+=======
+@export var damage = 2
+
+>>>>>>> Stashed changes
 func _on_body_entered(body):
 	#print("body: ", body.name)
 	#print("Something collided")
 	if body.name.contains("SnowmanReal"):
 		#print("Detecting a snowman!")
+<<<<<<< Updated upstream
 		Global.score += 1
 		var rootScene = get_tree().root.get_child(1)
 		var timesSpawn = 3
@@ -14,6 +20,14 @@ func _on_body_entered(body):
 			snowmanDeath.global_position = body.global_position
 			timesSpawn -= 1
 		#print(rootScene.name)
+=======
+		var rootScene = get_tree().root.get_child(1)
+		print(rootScene.name)
+		
+		if body.has_method("take_damage"):
+			body.take_damage(damage)
+		
+>>>>>>> Stashed changes
 		body.queue_free()
 		# Play Sound Effect when killing snowman.
 		#rootScene.emit_signal("playSound", "Pillow")

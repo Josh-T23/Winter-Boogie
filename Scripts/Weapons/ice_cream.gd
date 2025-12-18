@@ -1,4 +1,5 @@
 extends Area3D
+@export var damage = 1
 
 @onready var creamAudio = $%CreamAudio
 
@@ -9,6 +10,7 @@ func _on_body_entered(body):
 		#print("Detecting a snowman!")
 		Global.score += 1
 		var rootScene = get_tree().root.get_child(1)
+<<<<<<< Updated upstream
 		var timesSpawn = 3
 		while(timesSpawn != 0):
 			var snowmanDeath = load("res://Prefabricated/Mobs/snowman_death.tscn").instantiate()
@@ -16,6 +18,13 @@ func _on_body_entered(body):
 			snowmanDeath.global_position = body.global_position
 			timesSpawn -= 1
 		#print(rootScene.name)
+=======
+		print(rootScene.name)
+		
+		if body.has_method("take_damage"):
+			body.take_damage(damage)
+		
+>>>>>>> Stashed changes
 		body.queue_free()
 		creamAudio.play()
 		# Play Sound Effect when killing snowman.
