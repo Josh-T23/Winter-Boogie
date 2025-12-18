@@ -47,12 +47,12 @@ script = ExtResource("2_fvoc2")
 
 [node name="BaseballCooldown" type="Timer" parent="XROrigin3D/Right"]
 unique_name_in_owner = true
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
 
 [node name="IceCreamCooldown" type="Timer" parent="XROrigin3D/Right"]
 unique_name_in_owner = true
-wait_time = 5.0
+wait_time = 3.0
 one_shot = true
 
 [node name="HealthBar" type="Label3D" parent="XROrigin3D"]

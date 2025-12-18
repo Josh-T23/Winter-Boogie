@@ -9,8 +9,8 @@ func _on_timer_timeout():
 func _on_area_3d_body_entered(body):
 	if body.name.contains("SnowmanReal"):
 		Global.score += 1
-		if body.hp - 1 > 0:
-			body.hp -= 1
+		if body.hp - 2 > 0:
+			body.hp -= 2
 			var getLabel = body.get_node("Label3D")
 			var heartNums = body.hp
 			getLabel.text = ""

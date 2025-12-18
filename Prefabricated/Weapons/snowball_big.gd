@@ -15,8 +15,8 @@ func _on_area_3d_body_entered(body):
 	if body.name.contains("SnowmanReal"):
 		#print("Detecting a snowman!")
 		Global.score += 4
-		if body.hp - 1 > 0:
-			body.hp -= 1
+		if body.hp - 3 > 0:
+			body.hp -= 3
 			var getLabel = body.get_node("Label3D")
 			var heartNums = body.hp
 			getLabel.text = ""

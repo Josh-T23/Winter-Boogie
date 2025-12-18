@@ -69,6 +69,7 @@ transform = Transform3D(-0.999641, 0, -0.026805, 0, 1, 0, 0.026805, 0, -0.999641
 [node name="Baseball Bat" type="Area3D" parent="WeaponMenu3D"]
 transform = Transform3D(0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866026, 0.929464, -0.1, -2.02066)
 script = ExtResource("3_30dop")
+cost = 75
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WeaponMenu3D/Baseball Bat"]
 mesh = ExtResource("4_3c43u")
@@ -88,6 +89,7 @@ text = "-75 points"
 [node name="Snowball Cannon" type="Area3D" parent="WeaponMenu3D"]
 transform = Transform3D(0.500001, 0, -0.866026, 0, 1, 0, 0.866026, 0, 0.500001, 1.77129, -0.1, -0.992364)
 script = ExtResource("5_30dop")
+cost = 150
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WeaponMenu3D/Snowball Cannon"]
 mesh = ExtResource("5_b4ff2")
@@ -112,6 +114,7 @@ text = "-150 points"
 [node name="Ice Cream" type="Area3D" parent="WeaponMenu3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.403624, -0.1, -2.48008)
 script = ExtResource("6_lugu6")
+cost = 25
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WeaponMenu3D/Ice Cream"]
 mesh = SubResource("QuadMesh_x50hc")
