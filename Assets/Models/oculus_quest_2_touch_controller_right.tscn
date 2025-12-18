@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbol71gwe61ft"]
+
+[ext_resource type="PackedScene" uid="uid://ccpn6d0kebnia" path="res://Assets/Materials/OculusQuest2TouchController_Right.gltf" id="1_6w1qf"]
+
+[node name="OculusQuest2TouchController_Right" instance=ExtResource("1_6w1qf")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)

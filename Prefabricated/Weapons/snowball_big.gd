@@ -14,7 +14,7 @@ func _on_body_entered(body):
 func _on_area_3d_body_entered(body):
 	if body.name.contains("SnowmanReal"):
 		#print("Detecting a snowman!")
-		Global.score += 1
+		Global.score += 4
 		var rootScene = get_tree().root.get_child(1)
 		var timesSpawn = 3
 		while(timesSpawn != 0):
