@@ -1,18 +1,10 @@
 extends RigidBody3D
 
-@export var hp = 1.0
 @export var speed = 5.0
 @export var dir = Vector3(0, 0, 1)
 @export var player: Node3D
-@onready var groanEffect = $%GroanEffect
-
-#signal snowman_died
-#
-func _ready():
-	if not groanEffect.playing and randi_range(0, 1) == 1:
-		groanEffect.play()
-var max_health = 1
-var current_health = 1
+var max_health = 3
+var current_health = 3
 
 func take_damage(damage_amount = 1):
 	current_health -= damage_amount
@@ -23,7 +15,7 @@ func take_damage(damage_amount = 1):
 func _physics_process(delta):
 	if not player:
 		return
-
+		
 	dir = (player.global_position - global_position).normalized()
 	
 	linear_velocity = dir * speed

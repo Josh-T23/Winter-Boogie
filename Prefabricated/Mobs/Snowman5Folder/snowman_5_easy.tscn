@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://8mhq8ipjp0dw"]
+
+[ext_resource type="PackedScene" uid="uid://dmji54yfys5a0" path="res://Assets/Models/Snowman5.glb" id="1_bu5o5"]
+
+[node name="Snowman5" instance=ExtResource("1_bu5o5")]
+transform = Transform3D(0.24, 0, 0, 0, 0.175, 0, 0, 0, 0.21, 0, 0, 0)
