@@ -39,7 +39,8 @@ tracker = &"right_hand"
 script = ExtResource("1_jmfy1")
 
 [node name="Timer" type="Timer" parent="XROrigin3D/RightHand"]
-wait_time = 5.0
+wait_time = 3.0
+one_shot = true
 autostart = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
