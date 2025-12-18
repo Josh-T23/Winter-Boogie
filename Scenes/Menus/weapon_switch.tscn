@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://be5xdr8lt5rd6"]
+[gd_scene load_steps=21 format=3 uid="uid://be5xdr8lt5rd6"]
 
 [ext_resource type="Script" uid="uid://ckqq5noag8peq" path="res://Scripts/UI/weapon_switch.gd" id="1_3av2h"]
 [ext_resource type="Script" uid="uid://b10s8ujxf6mw4" path="res://Scripts/UI/weapon_switch_controller.gd" id="2_ha0fl"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bo5rdx6ehdub7" path="res://Scenes/Menus/pillow_select.gd" id="6_hgdga"]
 [ext_resource type="Script" uid="uid://d1alxqagpvmhr" path="res://Scenes/Menus/ice_cream_select.gd" id="6_lugu6"]
 [ext_resource type="Material" uid="uid://dh7nsw5df1872" path="res://Materials/weapon_desc.tres" id="7_b4ff2"]
+[ext_resource type="AudioStream" uid="uid://djq2h431qsqa1" path="res://Assets/Audio/merry-christmas-time-2-449254.mp3" id="11_a70l6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3av2h"]
 
@@ -84,7 +85,6 @@ text = "-75 points"
 [node name="Snowball Cannon" type="Area3D" parent="WeaponMenu3D"]
 transform = Transform3D(0.500001, 0, -0.866026, 0, 1, 0, 0.866026, 0, 0.500001, 1.77129, -0.1, -0.992364)
 script = ExtResource("5_30dop")
-cost = 150
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WeaponMenu3D/Snowball Cannon"]
 mesh = ExtResource("5_b4ff2")
@@ -207,5 +207,9 @@ skeleton = NodePath("")
 [node name="Label3D" type="Label3D" parent="SnowballDesc"]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0218244, 0, 0.0355639)
 pixel_size = 0.003
+
+[node name="ShopBG" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_a70l6")
+autoplay = true
 
 [connection signal="button_pressed" from="XROrigin3D/XRController3DRight" to="XROrigin3D/XRController3DRight" method="_on_button_pressed"]

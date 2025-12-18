@@ -1,13 +1,13 @@
 extends Node3D
 
 var xr_interface: XRInterface
-@onready var pillowAudio = $%PillowAudio
-@onready var creamAudio = $%CreamAudio
-@onready var batAudio = $%BatAudio
-@onready var cannonAudio = $%CannonAudio
+#@onready var pillowAudio = $%PillowAudio
+#@onready var creamAudio = $%CreamAudio
+#@onready var batAudio = $%BatAudio
+#@onready var cannonAudio = $%CannonAudio
 @onready var HealthBar = $%HealthBar
 
-signal playSound
+#signal playSound
 
 var hits = 0
 const MAX_HITS = 3
@@ -15,7 +15,7 @@ const MAX_ROUNDS = 3
 var health = MAX_HITS
 
 func _ready():
-	playSound.connect(_play_sound)
+	#playSound.connect(_play_sound)
 	xr_interface = XRServer.find_interface("OpenXR")
 	if xr_interface and xr_interface.is_initialized():
 		print("OpenXR initialized successfully")
@@ -28,16 +28,16 @@ func _ready():
 	else:
 		print("OpenXR not initialized, please check if your headset is connected")
 		
-func _play_sound(soundName):
-	#print("Sound should be playing.")
-	if soundName == "Pillow":
-		pillowAudio.play()
-	if soundName == "Ice Cream":
-		creamAudio.play()
-	if soundName == "Bat":
-		batAudio.play()
-	if soundName == "Cannon":
-		cannonAudio.play()
+#func _play_sound(soundName):
+	##print("Sound should be playing.")
+	#if soundName == "Pillow":
+		#pillowAudio.play()
+	#if soundName == "Ice Cream":
+		#creamAudio.play()
+	#if soundName == "Bat":
+		#batAudio.play()
+	#if soundName == "Cannon":
+		#cannonAudio.play()
 
 func snowman_hit():
 	hits += 1

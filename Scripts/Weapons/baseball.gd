@@ -1,5 +1,7 @@
 extends Area3D
 
+@onready var batAudio = $%BatAudio
+
 func _on_body_entered(body):
 	#print("body: ", body.name)
 	#print("Something collided")
@@ -15,4 +17,4 @@ func _on_body_entered(body):
 			timesSpawn -= 1
 		body.queue_free()
 		# Play Sound Effect when killing snowman.
-		rootScene.emit_signal("playSound", "Bat")
+		batAudio.play()

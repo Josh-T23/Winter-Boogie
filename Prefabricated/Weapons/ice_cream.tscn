@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8orx3lp4xhdy"]
+[gd_scene load_steps=5 format=3 uid="uid://c8orx3lp4xhdy"]
 
 [ext_resource type="PackedScene" uid="uid://cnp2a1cv4kqjp" path="res://Assets/Models/Ice Cream.glb" id="1_6vhj7"]
 [ext_resource type="Script" uid="uid://7ovbjaih4l0g" path="res://Scripts/Weapons/ice_cream.gd" id="2_v7o5o"]
+[ext_resource type="AudioStream" uid="uid://bcol23w2k8b01" path="res://Assets/Audio/cartoon-splat-310479.mp3" id="3_8i3yr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6vhj7"]
 radius = 0.15
@@ -19,5 +20,10 @@ script = ExtResource("2_v7o5o")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.250887, 0)
 shape = SubResource("CapsuleShape3D_6vhj7")
+
+[node name="CreamAudio" type="AudioStreamPlayer" parent="." index="2"]
+unique_name_in_owner = true
+stream = ExtResource("3_8i3yr")
+volume_db = 2.0
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

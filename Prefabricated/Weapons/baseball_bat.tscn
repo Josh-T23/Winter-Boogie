@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgm5l4gby1xw2"]
+[gd_scene load_steps=5 format=3 uid="uid://dgm5l4gby1xw2"]
 
 [ext_resource type="PackedScene" uid="uid://d087t3cln2tdp" path="res://Assets/Models/Baseball bat.glb" id="1_j60af"]
 [ext_resource type="Script" uid="uid://cjkrvjm8kx1os" path="res://Scripts/Weapons/baseball.gd" id="2_66cic"]
+[ext_resource type="AudioStream" uid="uid://hlqewfaw0er" path="res://Assets/Audio/swing-whoosh-5-198498.mp3" id="3_lvxy3"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_j60af"]
 height = 14.149
@@ -19,5 +20,9 @@ script = ExtResource("2_66cic")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 5.63457, -5.24953)
 shape = SubResource("CylinderShape3D_j60af")
+
+[node name="BatAudio" type="AudioStreamPlayer" parent="." index="2"]
+unique_name_in_owner = true
+stream = ExtResource("3_lvxy3")
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

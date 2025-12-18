@@ -1,5 +1,5 @@
 extends Area3D
-
+@onready var pillowAudio = $%PillowAudio
 func _on_body_entered(body):
 	#print("body: ", body.name)
 	#print("Something collided")
@@ -16,4 +16,5 @@ func _on_body_entered(body):
 		#print(rootScene.name)
 		body.queue_free()
 		# Play Sound Effect when killing snowman.
-		rootScene.emit_signal("playSound", "Pillow")
+		#rootScene.emit_signal("playSound", "Pillow")
+		pillowAudio.play()
